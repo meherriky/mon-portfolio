@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRODUCTIONS VIDEO - Grande Photo</title>
+    <title>MEHER FERCHICHI - Grande Photo</title>
     <style>
         /* --- RESET BASE (Pour éviter les bugs) --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,7 +21,7 @@
             height: 400px; /* Hauteur de la grande photo */
             
             /* --- 1. AJOUTEZ VOTRE PHOTO ICI --- */
-            background-image: url('ma-grande-photo.jpg'); /* NOM DE VOTRE FICHIER IMAGE */
+            background-image: url('image profil.png'); /* NOM DE VOTRE FICHIER IMAGE */
             
             /* Configuration de l'image */
             background-size: cover; /* Couvre tout l'espace */
