@@ -97,8 +97,13 @@
     </div>
 
     <nav>
-        <a href="index.html">Accueil</a>
-        <a href="categorie-d.html">Catégorie A</a>
+         <a href="index.html">ACCEUIL</a>
+        <a href="categorie-a.html">BIOGRAPHIE</a>
+        <a href="categorie-b.html">CERTIFICAT</a>
+        <a href="categorie-c.html">ALBUM</a>
+        <a href="categorie-d.html">AUDIO PRODUCTION</a>
+        <a href="categorie-e.html">VIDEO PRODUCTION</a>
+        <a href="categorie-f.html">AI VIDEO PRODUCTION</a>
         <a href="admin.html">Admin</a>
     </nav>
 
