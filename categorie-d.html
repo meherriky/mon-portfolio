@@ -1,125 +1,124 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AUDIO PRODUCTION - MEHER FERCHICHI</title>
     <style>
-        /* --- BASE & THÈME SOMBRE FUTURISTE --- */
+        /* --- RESET & STYLE DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', sans-serif; 
-            background: #0f1015; /* Fond très sombre */
-            color: #fff; 
-            line-height: 1.6;
-        }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fff; color: #333; line-height: 1.8; }
 
-        /* --- BANDEAU PHOTO (Maquette Principale) --- */
+        /* --- BANDEAU PHOTO (Identique à la charte) --- */
         .grande-photo-banner {
-            width: 100%; height: 300px;
-            background: #1a1a2e url('image-profil.png') center/cover no-repeat;
-            box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
+            width: 100%; height: 400px;
+            background: #001f3f url('image profil.png') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center;
-            border-bottom: 2px solid #00d1ff;
+            position: relative;
         }
+        .grande-photo-banner::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.3); }
         .grande-photo-banner h1 {
-            font-size: 3rem;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(0, 209, 255, 0.8);
-            letter-spacing: 5px;
+            position: relative; z-index: 2; font-size: 3.5rem; color: white;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5); letter-spacing: 8px; text-transform: uppercase;
         }
 
-        /* --- NAVIGATION --- */
-        nav { background: #111; padding: 15px; text-align: center; border-bottom: 1px solid #333; }
-        nav a { color: #ccc; text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; }
+        /* --- NAVIGATION (AUDIO PRODUCTION allumé) --- */
+        nav { background: #1a1a1a; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; }
+        nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; padding-bottom: 8px; font-size: 0.85rem; }
+        nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; text-shadow: 0 0 8px #00d1ff; }
         nav a:hover { color: #00d1ff; }
 
-        /* --- CONTENEUR DE LA GRILLE --- */
-        .main-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-        }
+        /* --- CONTENU --- */
+        .main-container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        h2.section-title { font-size: 2.2rem; color: #003366; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
 
+        /* --- GRILLE AUDIO --- */
         .grid-audio {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 PAR LIGNE */
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
+            margin-top: 30px;
         }
 
-        /* --- CARTE AUDIO STYLE NÉON --- */
+        /* CARTE AUDIO STYLE PROFESSIONNEL */
         .audio-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
+            background: #f9f9f9;
+            border-radius: 12px;
             padding: 25px;
-            border: 1px solid #222;
-            transition: all 0.4s ease;
+            border-top: 4px solid #003366;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
         .audio-card:hover {
-            border-color: #00d1ff;
-            box-shadow: 0 0 25px rgba(0, 209, 255, 0.2);
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 209, 255, 0.15);
+            border-top-color: #00d1ff;
         }
 
         .audio-info h3 {
-            color: #00d1ff;
+            color: #003366;
             margin-bottom: 10px;
             font-size: 1.3rem;
         }
         .audio-info p {
-            color: #aaa;
+            color: #666;
             font-size: 0.95rem;
             margin-bottom: 20px;
-            height: 60px; /* Aligne la hauteur des textes */
+            height: 70px;
             overflow: hidden;
+            text-align: justify;
         }
 
-        /* --- PLAYER SOUNDCLOUD --- */
+        /* --- PLAYER BOX --- */
         .player-box {
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
             background: #000;
-            border: 1px solid #333;
+            border: 1px solid #ddd;
         }
 
         @media (max-width: 800px) {
-            .grid-audio { grid-template-columns: 1fr; } /* 1 seul sur mobile */
-            .grande-photo-banner h1 { font-size: 2rem; }
+            .grid-audio { grid-template-columns: 1fr; }
+            .grande-photo-banner h1 { font-size: 2.2rem; }
+            nav a { margin: 5px; font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="grande-photo-banner">
-        <h1>MEHER FERCHICHI</h1>
+        <h1>Meher Ferchichi</h1>
     </div>
 
     <nav>
-        <a href="index.html">ACCUEIL</a>
-        <a href="categorie-a.html">BIOGRAPHIE</a>
-        <a href="categorie-b.html">CERTIFICAT</a>
+        <a href="index.html">HOME</a>
+        <a href="categorie-a.html">BIOGRAPHY</a>
+        <a href="categorie-b.html">CERTIFICATES</a>
         <a href="categorie-c.html">ALBUM</a>
-        <a href="categorie-d.html" style="color:#00d1ff;">AUDIO PRODUCTION</a>
+        <a href="categorie-d.html" class="active">AUDIO PRODUCTION</a>
         <a href="categorie-e.html">VIDEO PRODUCTION</a>
-        <a href="admin.html">Admin</a>
+        <a href="categorie-f.html">AI VIDEO PRODUCTION</a>
     </nav>
 
-    <div class="main-container">
-        <h2 style="margin-bottom: 30px; border-left: 5px solid #00d1ff; padding-left: 15px;">Audio Portfolio</h2>
+    <main class="main-container">
+        <h2 class="section-title">Audio Portfolio</h2>
+        <p style="margin-bottom: 30px; color: #666; font-style: italic;">
+            Explore a selection of my radio broadcasts, podcasts, and digital audio insights.
+        </p>
 
         <div class="grid-audio">
             
             <div class="audio-card">
                 <div class="audio-info">
                     <h3>Digital Strategy Insight</h3>
-                    <p>Analyse approfondie de l'évolution des médias numériques et de l'impact de l'IA sur la création de contenu sonore.</p>
+                    <p>In-depth analysis of digital media evolution and the impact of AI on sound content creation and distribution models.</p>
                 </div>
                 <div class="player-box">
                     <iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay" 
-                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/VOTRE_ID_1&color=%2300d1ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/VOTRE_ID_1&color=%23003366&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
                     </iframe>
                 </div>
             </div>
@@ -127,11 +126,11 @@
             <div class="audio-card">
                 <div class="audio-info">
                     <h3>Media Governance Podcast</h3>
-                    <p>Discussion sur les standards de qualité de l'information dans le service public audiovisuel moderne.</p>
+                    <p>Discussion on information quality standards and regulatory compliance within the modern public broadcasting service.</p>
                 </div>
                 <div class="player-box">
                     <iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay" 
-                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/VOTRE_ID_2&color=%2300d1ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/VOTRE_ID_2&color=%23003366&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
                     </iframe>
                 </div>
             </div>
@@ -139,11 +138,11 @@
             <div class="audio-card">
                 <div class="audio-info">
                     <h3>Technological Innovation</h3>
-                    <p>Reportage sonore sur les nouvelles infrastructures de diffusion et le futur du journalisme de données.</p>
+                    <p>Reporting on new broadcasting infrastructures, mobile journalism (MoJo) techniques, and the future of data-driven news.</p>
                 </div>
                 <div class="player-box">
                     <iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay" 
-                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/VOTRE_ID_3&color=%2300d1ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/VOTRE_ID_3&color=%23003366&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
                     </iframe>
                 </div>
             </div>
@@ -151,17 +150,17 @@
             <div class="audio-card">
                 <div class="audio-info">
                     <h3>Arabic Web Content</h3>
-                    <p>Étude de cas sur la production de contenus spécifiques pour les plateformes arabophones internationales.</p>
+                    <p>Case study on producing high-quality Arabic digital content for global platforms, focusing on engagement and ethics.</p>
                 </div>
                 <div class="player-box">
                     <iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay" 
-                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/VOTRE_ID_4&color=%2300d1ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/VOTRE_ID_4&color=%23003366&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
                     </iframe>
                 </div>
             </div>
 
         </div>
-    </div>
+    </main>
 
 </body>
 </html>
