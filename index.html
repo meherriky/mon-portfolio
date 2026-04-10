@@ -107,7 +107,34 @@
         <a href="categorie-f.html">AI VIDEO PRODUCTION</a>
         <a href="admin.html">Admin</a>
     </nav>
-    
+    /* Style par défaut des liens */
+nav a { 
+    color: rgba(255, 255, 255, 0.6); /* Un peu éteint par défaut */
+    text-decoration: none; 
+    margin: 0 15px; 
+    font-weight: bold; 
+    transition: 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Style de la page "Allumée" (Active) */
+nav a.active { 
+    color: #00d1ff; /* Bleu néon brillant */
+    text-shadow: 0 0 10px rgba(0, 209, 255, 0.8);
+}
+
+/* Petit trait contemporain sous le lien actif */
+nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #00d1ff;
+    box-shadow: 0 0 10px #00d1ff;
+}
     <main class="main-container">
      <section style="padding: 20px 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
     
