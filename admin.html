@@ -2,32 +2,58 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Administration - Tableau de Bord</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - MEHER FERCHICHI</title>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <style>
-        body { font-family: sans-serif; margin: 0; background: #02060c; color: white; display: flex; min-height: 100vh; }
-        .sidebar { width: 250px; background: #00122e; border-right: 1px solid #00d1ff; padding: 20px; }
-        .main { flex: 1; padding: 40px; }
-        .card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; border: 1px solid #333; margin-bottom: 20px; }
-        .btn { background: #00d1ff; color: #02060c; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        a { color: #00d1ff; text-decoration: none; display: block; margin: 10px 0; }
+        /* --- DESIGN GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #02060c; color: #e0e0e0; display: flex; min-height: 100vh; }
+
+        /* --- SIDEBAR --- */
+        .sidebar { width: 280px; background: #00122e; border-right: 2px solid #00d1ff; padding: 30px 20px; position: fixed; height: 100vh; }
+        .sidebar h2 { color: #00d1ff; font-size: 1.5rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+        .sidebar a { color: #fff; text-decoration: none; display: block; padding: 12px 15px; margin: 8px 0; border-radius: 5px; transition: 0.3s; font-weight: 500; }
+        .sidebar a:hover, .sidebar a.active { background: rgba(0, 209, 255, 0.2); color: #00d1ff; }
+        .stats-box { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-top: 40px; border-left: 4px solid #00d1ff; }
+        .stats-box small { color: #00d1ff; text-transform: uppercase; font-size: 0.7rem; }
+        .stats-count { font-size: 1.8rem; font-weight: bold; display: block; }
+
+        /* --- ZONE PRINCIPALE --- */
+        .main-content { margin-left: 280px; flex: 1; padding: 40px; }
+        .header-main { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        
+        /* --- FORMULAIRES & CARTES --- */
+        .admin-card { background: rgba(255,255,255,0.03); border: 1px solid #333; padding: 30px; border-radius: 15px; display: none; }
+        .admin-card.active { display: block; animation: fadeIn 0.5s; }
+        
+        h3 { color: #00d1ff; margin-bottom: 20px; font-size: 1.4rem; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #ccc; }
+        input[type="text"], input[type="file"], select { 
+            width: 100%; padding: 12px; background: #0a0f18; border: 1px solid #444; color: white; border-radius: 5px; 
+        }
+        
+        .btn-save { background: #00d1ff; color: #02060c; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem; margin-top: 20px; transition: 0.3s; }
+        .btn-save:hover { background: #0096b8; transform: scale(1.02); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
+
     <div class="sidebar">
-        <h2>ADMIN</h2>
-        <a href="index.html">⬅ Retour au Site</a>
-        <hr>
-        <a href="#">Modifier le Nom</a>
-        <a href="#">Changer la Photo</a>
-        <a href="#">Gérer les Catégories</a>
-    </div>
-    <div class="main">
-        <h1>Tableau de Bord</h1>
-        <div class="card">
-            <h3>Statistiques rapides</h3>
-            <p>Visiteurs aujourd'hui : 0 (Le site n'est pas encore en ligne)</p>
-        </div>
-        <button class="btn" onclick="alert('Bientôt disponible : Mise à jour du site')">Publier les changements</button>
-    </div>
-</body>
-</html>
+        <h2>Admin Panel</h2>
+        <a href="#" class="active" onclick="showTab('tab-stats')">Tableau de Bord</a>
+        <a href="#" onclick="showTab('tab-bio')">Biographie</a>
+        <a href="#" onclick="showTab('tab-cert')">Certificats</a>
+        <a href="#" onclick="showTab('tab-album')">Album Photo</a>
+        <a href="#" onclick="showTab('tab-audio')">Audio Production</a>
+        <a href="#" onclick="showTab('tab-video')">Video Production</a>
+        <a href="#" onclick="showTab('tab-ai')">AI Video Production</a>
+        <hr style="margin: 20px 0; border-color: #333;">
+        <a href="index.html" style="color: #ff4b4b;">⬅ Voir le site public</a>
+
+        <div class="stats-box">
+            <small>Total Visiteurs</small>
+            <span class="stats-count">1,248</span>
