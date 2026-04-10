@@ -22,7 +22,7 @@
             text-shadow: 0 5px 15px rgba(0,0,0,0.5); letter-spacing: 8px; text-transform: uppercase;
         }
 
-        /* --- NAVIGATION (Certificates est actif) --- */
+        /* --- NAVIGATION --- */
         nav { background: #1a1a1a; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; }
         nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; padding-bottom: 8px; font-size: 0.85rem; }
         nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; text-shadow: 0 0 8px #00d1ff; }
@@ -32,5 +32,104 @@
         .main-container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
         h2.section-title { font-size: 2.2rem; color: #003366; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
 
-        /* --- GRILLE DE CERTIFICATS --- */
-        .grid-certifs {
+        /* --- GRILLE --- */
+        .grid-certifs { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
+            gap: 25px; 
+        }
+
+        .cert-card {
+            position: relative; height: 200px; background: #00122e; border-radius: 10px;
+            overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .cert-card:hover { transform: translateY(-5px); }
+        .cert-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        .overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 51, 102, 0.9); color: white;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            text-align: center; padding: 20px; opacity: 0; transition: 0.4s ease; 
+            transform: translateY(100%);
+        }
+        .cert-card:hover .overlay { opacity: 1; transform: translateY(0); }
+
+        /* --- MODALE --- */
+        #zoneZoom {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; padding: 20px;
+        }
+        .modal-box {
+            display: flex; background: white; max-width: 1000px; width: 100%; 
+            max-height: 85vh; border-radius: 12px; overflow: hidden; position: relative;
+        }
+        .modal-img-side { flex: 1.2; background: #111; display: flex; align-items: center; justify-content: center; }
+        .modal-img-side img { max-width: 100%; max-height: 80vh; object-fit: contain; }
+        .modal-text-side { flex: 1; padding: 40px; color: #333; }
+        
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: #333; font-weight: bold; }
+
+        @media (max-width: 850px) {
+            .modal-box { flex-direction: column; }
+            .grande-photo-banner h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grande-photo-banner">
+        <h1>Meher Ferchichi</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="categorie-a.html">BIOGRAPHY</a>
+        <a href="categorie-b.html" class="active">CERTIFICATES</a>
+        <a href="categorie-c.html">ALBUM</a>
+        <a href="categorie-d.html">AUDIO PRODUCTION</a>
+        <a href="categorie-e.html">VIDEO PRODUCTION</a>
+        <a href="categorie-f.html">AI VIDEO PRODUCTION</a>
+    </nav>
+
+    <main class="main-container">
+        <h2 class="section-title">Certifications</h2>
+        
+        <div class="grid-certifs">
+            <div class="cert-card" onclick="ouvrirZoom('certif-asbu.jpg', 'ASBU Academy', 'AI in News Quality Service and Verification.')">
+                <img src="certif-asbu.jpg" alt="ASBU">
+                <div class="overlay"><strong>ASBU Academy</strong></div>
+            </div>
+            <div class="cert-card" onclick="ouvrirZoom('certif-ebu.jpg', 'EBU Academy', 'Digital Transformation and Public Service Media.')">
+                <img src="certif-ebu.jpg" alt="EBU">
+                <div class="overlay"><strong>EBU Academy</strong></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="zoneZoom" onclick="fermerZoom()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="fermerZoom()">&times;</span>
+            <div class="modal-img-side"><img id="imgZoom" src=""></div>
+            <div class="modal-text-side">
+                <h2 id="titreZoom" style="color:#003366; margin-bottom:10px;"></h2>
+                <p id="descZoom"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function ouvrirZoom(src, titre, desc) {
+            document.getElementById('imgZoom').src = src;
+            document.getElementById('titreZoom').innerText = titre;
+            document.getElementById('descZoom').innerText = desc;
+            document.getElementById('zoneZoom').style.display = 'flex';
+        }
+        function fermerZoom() {
+            document.getElementById('zoneZoom').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
