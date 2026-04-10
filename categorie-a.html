@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIOGRAPHIE - MEHER FERCHICHI</title>
+    <title>BIOGRAPHY - MEHER FERCHICHI</title>
     <style>
-        /* --- RESET & STYLE CONTEMPORAIN --- */
+        /* --- RESET & STYLE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #fff; color: #2c3e50; line-height: 1.8; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fff; color: #333; line-height: 1.8; }
 
-        /* --- BANDEAU PHOTO (Maquette) --- */
+        /* --- BANDEAU PHOTO --- */
         .grande-photo-banner {
             width: 100%; height: 400px;
             background: #001f3f url('image profil.png') center/cover no-repeat;
@@ -22,40 +22,37 @@
             text-shadow: 0 5px 15px rgba(0,0,0,0.5); letter-spacing: 8px; text-transform: uppercase;
         }
 
-        /* --- NAVIGATION AVEC EFFET ACTIF --- */
+        /* --- NAVIGATION --- */
         nav { background: #1a1a1a; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; }
         nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 20px; font-weight: bold; transition: 0.3s; padding-bottom: 8px; }
         nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; text-shadow: 0 0 8px #00d1ff; }
         nav a:hover { color: #00d1ff; }
 
-        /* --- MISE EN PAGE PLEINE LARGEUR --- */
+        /* --- LAYOUT PLEINE LARGEUR --- */
         .bio-content { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
         
-        section { margin-bottom: 80px; }
-        h2 { font-size: 2rem; color: #003366; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        section { margin-bottom: 60px; }
 
-        /* --- STYLE DES SECTIONS --- */
-        .intro-text { font-size: 1.3rem; color: #555; text-align: justify; margin-bottom: 40px; }
-        
-        .experience-box { margin-bottom: 40px; }
-        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
-        .job-title { font-size: 1.4rem; font-weight: bold; color: #003366; }
+        /* --- JEU DE COULEURS TITRES --- */
+        h2 { font-size: 2.2rem; color: #003366; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        h3 { font-size: 1.5rem; color: #003366; margin-bottom: 5px; }
+        h4 { color: #00d1ff; text-transform: uppercase; font-size: 1rem; margin-bottom: 15px; letter-spacing: 1px; }
+
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
         .job-date { font-weight: bold; color: #00d1ff; font-size: 1.1rem; }
-        .job-location { font-style: italic; color: #7f8c8d; display: block; margin-bottom: 15px; }
-        
-        .list-items { list-style: none; padding-left: 0; }
-        .list-items li { position: relative; padding-left: 25px; margin-bottom: 10px; }
+        .location-info { font-style: italic; color: #7f8c8d; display: block; margin-bottom: 15px; }
+
+        .list-items { list-style: none; padding-left: 0; margin-bottom: 30px; }
+        .list-items li { position: relative; padding-left: 25px; margin-bottom: 12px; text-align: justify; }
         .list-items li::before { content: "▹"; position: absolute; left: 0; color: #00d1ff; font-weight: bold; }
 
-        /* --- GRILLE DE COMPÉTENCES --- */
-        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
-        .skill-cat h4 { color: #00d1ff; margin-bottom: 10px; text-transform: uppercase; font-size: 0.9rem; }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .skill-tag { border: 1px solid #00d1ff; color: #003366; padding: 5px 15px; border-radius: 5px; font-weight: bold; font-size: 0.9rem; }
 
-        /* --- CONTACT BAR --- */
-        .contact-footer { background: #f9f9f9; padding: 40px; text-align: center; border-radius: 10px; margin-top: 50px; }
-        .contact-footer span { margin: 0 20px; font-weight: bold; color: #003366; }
+        .contact-info { background: #f9f9f9; padding: 30px; border-radius: 10px; text-align: center; border-top: 3px solid #003366; }
+        .contact-info p { margin: 10px 0; font-weight: bold; color: #003366; }
 
-        @media (max-width: 768px) { .exp-header { flex-direction: column; } .skills-grid { grid-template-columns: 1fr; } .grande-photo-banner h1 { font-size: 2rem; } }
+        @media (max-width: 768px) { .job-header { flex-direction: column; } .grande-photo-banner h1 { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
@@ -65,9 +62,9 @@
     </div>
 
     <nav>
-        <a href="index.html">ACCUEIL</a>
-        <a href="categorie-a.html" class="active">BIOGRAPHIE</a>
-        <a href="categorie-b.html">CERTIFICAT</a>
+        <a href="index.html">HOME</a>
+        <a href="categorie-a.html" class="active">BIOGRAPHY</a>
+        <a href="categorie-b.html">CERTIFICATES</a>
         <a href="categorie-c.html">ALBUM</a>
         <a href="categorie-d.html">AUDIO PRODUCTION</a>
         <a href="categorie-e.html">VIDEO PRODUCTION</a>
@@ -76,86 +73,113 @@
     <div class="bio-content">
         
         <section>
-            <h2>À Propos</h2>
-            <p class="intro-text">
-                Stratège en contenu numérique et expert en gouvernance des médias avec plus de 20 ans d'expérience étendue dans l'écosystème médiatique[cite: 1, 2, 7]. 
-                Leader éditorial reconnu, j'ai dirigé avec succès des initiatives de transformation numérique tout en garantissant une conformité rigoureuse aux réglementations médiatiques[cite: 8]. 
-                Expert en journalisme mobile (MoJo) et en Fact-Checking, je combine innovation technologique et intégrité éditoriale[cite: 4, 9].
+            <h2>About Me</h2>
+            <p style="font-size: 1.2rem; text-align: justify;">
+                Digital Content Strategist & Media Governance Expert with 20+ years of comprehensive experience across the media ecosystem[cite: 7]. A proven Editorial Leader who has successfully driven Digital Transformation initiatives while ensuring strict Media Regulatory Compliance (Media Law)[cite: 8]. Proficient in Mobile Journalism (MoJo) and Fact-Checking, seeking to leverage dual expertise in content quality and media innovation within a forward-thinking international organization or a major global media entity[cite: 9].
             </p>
         </section>
 
         <section>
-            <h2>Expériences Professionnelles</h2>
+            <h2>Professional Experience</h2>
 
-            <div class="experience-box">
-                <div class="exp-header">
-                    <span class="job-title">Digital Content Strategy Manager & Media Trainer</span>
-                    <span class="job-date">2023 - Present</span>
-                </div>
-                <span class="job-location">Radio Tunisienne | Tunis, Tunisia [cite: 12]</span>
-                <ul class="list-items">
-                    <li>Direction de la transition numérique de l'organisation par la conception et la mise en œuvre d'une stratégie de contenu multiplateforme complète[cite: 13].</li>
-                    <li>Formation des équipes rédactionnelles aux techniques de journalisme mobile (MoJo)[cite: 14].</li>
-                    <li>Supervision du développement et de l'optimisation des plateformes web[cite: 15].</li>
-                    <li>Garant de l'éthique médiatique et du respect des normes de conformité organisationnelles[cite: 16].</li>
-                </ul>
+            <div class="job-header">
+                <h3>Digital Content Strategy Manager & Media Trainer</h3>
+                <span class="job-date">2023 - Present</span>
             </div>
+            <span class="location-info">Radio Tunisienne | Tunis, Tunisia [cite: 12]</span>
+            <ul class="list-items">
+                <li>Directed the organization's digital transition by designing and implementing a comprehensive, cross-platform Digital Content Strategy[cite: 13].</li>
+                <li>Trained editorial teams on Mobile Journalism (MoJo) techniques and best practices for optimized digital content production[cite: 14].</li>
+                <li>Oversaw the development and optimization of web platforms, successfully expanding the group's digital footprint[cite: 15].</li>
+                <li>Ensured that all digital content maintained strict adherence to media ethics and organizational compliance standards[cite: 16].</li>
+            </ul>
 
-            <div class="experience-box">
-                <div class="exp-header">
-                    <span class="job-title">Senior News Editor & Media Regulatory Coordinator</span>
-                    <span class="job-date">2010 - 2023</span>
-                </div>
-                <span class="job-location">Radio Tunisienne | Tunis, Tunisia [cite: 17, 18]</span>
-                <ul class="list-items">
-                    <li>Coordination de l'équipe éditoriale senior, maintien du contrôle éditorial et de l'assurance qualité[cite: 19].</li>
-                    <li>Gestion de la conformité réglementaire avec les instances nationales (HAICA, ISIE), particulièrement durant les périodes électorales[cite: 20].</li>
-                    <li>Rédaction de rapports de conformité détaillés pour assurer une couverture médiatique juste et équilibrée[cite: 21].</li>
-                    <li>Orchestration de couvertures en direct pour des événements nationaux et internationaux de haut niveau[cite: 22].</li>
-                </ul>
+            <div class="job-header">
+                <h3>Senior News Editor & Media Regulatory Coordinator</h3>
+                <span class="job-date">2010 - 2023</span>
+            </div>
+            <span class="location-info">Radio Tunisienne | Tunis, Tunisia [cite: 17, 18]</span>
+            <ul class="list-items">
+                <li>Coordinated the senior editorial team, maintaining editorial control, quality assurance, and ethical standards across broadcasts[cite: 19].</li>
+                <li>Managed strict Media Regulatory Compliance with national bodies (HAICA, ISIE), particularly during critical Electoral Monitoring periods[cite: 20].</li>
+                <li>Authored detailed compliance reports and enforced rigorous standards to ensure fair and balanced media coverage[cite: 21].</li>
+                <li>Orchestrated live coverage for high-profile national and international events, including the 2019 Arab Summit[cite: 22].</li>
+            </ul>
+
+            <div class="job-header">
+                <h3>Journalist, Reporter & News Anchor</h3>
+                <span class="job-date">2006 - 2010</span>
+            </div>
+            <span class="location-info">Radio Tunisienne | Tunis, Tunisia [cite: 23, 24]</span>
+            <ul class="list-items">
+                <li>Presented live news broadcasts and flashes (Live Broadcasting), demonstrating exceptional proficiency in real-time information management[cite: 25].</li>
+                <li>Conducted field reporting and in-depth interviews, focusing on political and socio-economic affairs[cite: 26].</li>
+                <li>Developed advanced Scriptwriting and analytical skills essential for accurate and compelling news delivery[cite: 27].</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <h4>Strategy & Digital</h4>
+            <div class="skills-container">
+                <span class="skill-tag">Digital Content Strategy</span>
+                <span class="skill-tag">Mobile Journalism (MoJo)</span>
+                <span class="skill-tag">SEO & Web Development Oversight</span>
+                <span class="skill-tag">Data Journalism & Analysis</span>
+            </div>
+            <br>
+            <h4>Compliance & Governance</h4>
+            <div class="skills-container">
+                <span class="skill-tag">Media Regulatory Compliance</span>
+                <span class="skill-tag">Fact-Checking & Verification</span>
+                <span class="skill-tag">Media Ethics & Governance</span>
+                <span class="skill-tag">Electoral Monitoring</span>
+            </div>
+            <br>
+            <h4>Media & Leadership</h4>
+            <div class="skills-container">
+                <span class="skill-tag">Editorial Leadership</span>
+                <span class="skill-tag">Live Broadcasting</span>
+                <span class="skill-tag">Project Management</span>
+                <span class="skill-tag">Training & Development</span>
             </div>
         </section>
 
         <section>
-            <h2>Expertises & Compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-cat">
-                    <h4>Stratégie Digitale [cite: 4]</h4>
-                    <p>Stratégie de contenu, MoJo, SEO, Journalisme de données[cite: 4].</p>
-                </div>
-                <div class="skill-cat">
-                    <h4>Gouvernance [cite: 4]</h4>
-                    <p>Conformité réglementaire, Éthique des médias, Fact-checking[cite: 4].</p>
-                </div>
-                <div class="skill-cat">
-                    <h4>Leadership [cite: 4]</h4>
-                    <p>Direction éditoriale, Gestion de projet, Formation et développement[cite: 4].</p>
-                </div>
+            <h2>Education</h2>
+            <div class="job-header">
+                <h3>Master's Degree in Journalism and Information Science</h3>
+                <span class="job-date">2001 - 2005</span>
             </div>
+            <span class="location-info">Institut de Presse et des Sciences de l'Information (IPSI) | Tunis, Tunisia [cite: 29, 30]</span>
+            <p><strong>Key Coursework:</strong> Media Law, Investigative Reporting, Media Ethics, Mass Communication[cite: 31, 32, 33, 34].</p>
         </section>
 
         <section>
-            <h2>Formation & Certifications</h2>
-            <div class="experience-box">
-                <div class="exp-header">
-                    <span class="job-title">Master en Journalisme et Sciences de l'Information</span>
-                    <span class="job-date">2001 - 2005</span>
-                </div>
-                <span class="job-location">Institut de Presse et des Sciences de l'Information (IPSI) | Tunis [cite: 29, 30]</span>
-                <p>Spécialisation : Droit des médias, Journalisme d'investigation et Éthique[cite: 31, 32, 33].</p>
-            </div>
-            
-            <div class="list-items">
-                <li>Intelligence Artificielle au service de l'information (ASBU & EBU, 2023)[cite: 36].</li>
-                <li>Fondations du Journalisme de Données (EU / Deutsche Welle, 2019)[cite: 46, 47].</li>
-                <li>Diffusion de l'information juridique et judiciaire (DCAF Genève, 2018)[cite: 51, 52].</li>
-            </div>
+            <h2>Certifications & Development</h2>
+            <ul class="list-items">
+                <li><strong>Artificial Intelligence in News Quality Service</strong> - ASBU & EBU Academy | Tunis, Tunisia (2023) [cite: 36]</li>
+                <li><strong>Verification of Digital News & Fact-Checking</strong> - ASBU & EBU Academy | Tunis, Tunisia (2020) [cite: 41, 42]</li>
+                <li><strong>Foundations of Data Journalism</strong> - European Union / Deutsche Welle (DW) | Tunis, Tunisia (2019) [cite: 46, 47]</li>
+                <li><strong>Judicial/Legal Information Dissemination</strong> - DCAF (Geneva Centre) | Tunis, Tunisia (2018) [cite: 51, 52]</li>
+                <li><strong>Political News Coverage: Debate & Reporting</strong> - RFI & Monte Carlo Doualiya (MCD) | Tunis, Tunisia (2011) [cite: 56, 57]</li>
+            </ul>
         </section>
 
-        <div class="contact-footer">
-            <span>📍 Tunis, Tunisia</span>
-            <span>📞 00216 50 124 836 [cite: 5]</span>
-            <span>✉️ meher.radio.tun@gmail.com [cite: 6]</span>
+        <section>
+            <h2>Volunteer Experience</h2>
+            <div class="job-header">
+                <h3>Summit Assistant (Volunteer)</h3>
+                <span class="job-date">November 2005</span>
+            </div>
+            <span class="location-info">International Telecommunication Union (ITU) - UN Specialized Agency [cite: 62, 63]</span>
+            <p style="text-align: justify;">Provided organizational and logistical support during the World Summit on the Information Society (WSIS) in Tunis. Demonstrated professional conduct and adherence to protocol within an International Communication and Global Governance framework[cite: 64, 65].</p>
+        </section>
+
+        <div class="contact-info">
+            <p>📞 00216 50 124 836 | ✉️ meher.radio.tun@gmail.com [cite: 5, 6]</p>
+            <p>🔗 linkedin.com/in/meherferchichi [cite: 6]</p>
+            <p>Languages: Arabic (Native), French (Full Professional), English (Advanced Working) [cite: 67, 68, 69]</p>
         </div>
 
     </div>
