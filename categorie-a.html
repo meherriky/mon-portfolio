@@ -3,195 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEHER FERCHICHI - Grande Photo</title>
+    <title>BIOGRAPHIE - MEHER FERCHICHI</title>
     <style>
-        /* --- RESET BASE (Pour éviter les bugs) --- */
+        /* --- BASE & THÈME --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f0f2f5; /* Fond clair pour faire ressortir le flou blanc */
-            color: #333;
-            line-height: 1.6;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f9; color: #333; line-height: 1.6; }
 
-        /* --- LE GRAND BANDEAU AVEC LA GRANDE PHOTO --- */
+        /* --- BANDEAU PHOTO (Maquette Principale) --- */
         .grande-photo-banner {
-            width: 100%;
-            height: 400px; /* Hauteur de la grande photo */
-            
-            /* --- 1. AJOUTEZ VOTRE PHOTO ICI --- */
-            background-image: url('image profil.png'); /* NOM DE VOTRE FICHIER IMAGE */
-            
-            /* Configuration de l'image */
-            background-size: cover; /* Couvre tout l'espace */
-            background-position: center; /* Centre l'image */
-            background-repeat: no-repeat;
-            
-            /* --- 2. L'EFFET DE CONTOURS FLOUS BLANCS --- */
-            /* Une ombre interne blanche très large et floue */
-            box-shadow: inset 0 0 80px 40px rgba(255, 255, 255, 1); 
-            
-            /* Ajout d'un masque de bordure pour adoucir encore plus */
-            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-            mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-
-            /* Alignement du texte au centre */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white; /* Texte en blanc sur la photo */
-            text-align: center;
+            width: 100%; height: 300px;
+            background: #003366 url('image profil.png') center/cover no-repeat;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
         }
-
-        /* --- TEXTE SUR LA PHOTO --- */
-        .nom-famille {
-            font-size: 3.5rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Ombre pour la lisibilité */
-            margin: 0;
-        }
-
-        .profession {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-            margin-top: 10px;
+        .grande-photo-banner h1 {
+            font-size: 3rem; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            letter-spacing: 4px; text-transform: uppercase;
         }
 
         /* --- NAVIGATION --- */
-        nav {
-            background-color: #333;
-            padding: 15px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #ccc;
-        }
+        nav { background-color: #333; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.9rem; }
+        nav a:hover { color: #00d1ff; }
 
-        /* --- CONTENU --- */
-        .main-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+        /* --- LAYOUT BIOGRAPHIE --- */
+        .cv-container { max-width: 1100px; margin: 40px auto; display: grid; grid-template-columns: 300px 1fr; gap: 30px; padding: 0 20px; }
 
+        /* Colonne Gauche (Sidebar) */
+        .cv-sidebar { background: #003366; color: white; padding: 30px; border-radius: 8px; height: fit-content; }
+        .sidebar-section { margin-bottom: 30px; }
+        .sidebar-section h3 { border-bottom: 1px solid #00d1ff; padding-bottom: 10px; margin-bottom: 15px; color: #00d1ff; text-transform: uppercase; font-size: 1.1rem; }
+        .sidebar-section p, .sidebar-section li { font-size: 0.9rem; margin-bottom: 8px; list-style: none; }
+        .skill-tag { display: inline-block; background: rgba(255,255,255,0.1); padding: 5px 10px; border-radius: 4px; margin: 3px; font-size: 0.8rem; border: 1px solid rgba(0,209,255,0.3); }
+
+        /* Colonne Droite (Main) */
+        .cv-main { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .main-section { margin-bottom: 40px; }
+        .main-section h2 { color: #003366; border-left: 5px solid #00d1ff; padding-left: 15px; margin-bottom: 25px; text-transform: uppercase; }
+        
+        .exp-item, .edu-item { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .exp-title { font-weight: bold; color: #003366; font-size: 1.1rem; }
+        .exp-company { font-style: italic; color: #666; }
+        .exp-date { background: #eef2f6; padding: 2px 10px; border-radius: 20px; font-size: 0.85rem; color: #003366; font-weight: bold; }
+        .exp-desc { font-size: 0.95rem; margin-top: 10px; padding-left: 20px; }
+        .exp-desc li { margin-bottom: 5px; }
+
+        @media (max-width: 850px) { .cv-container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-     <div class="grande-photo-banner">
-        <h1 class="nom-famille">    MEHER FERCHICHI</h1>
-        <p class="profession">  DIGITAL CONTENT STRATEGIST</p>
+    <div class="grande-photo-banner">
+        <h1>MEHER FERCHICHI</h1>
     </div>
 
     <nav>
-        <a href="index.html">ACCEUIL</a>
-        <a href="categorie-a.html">BIOGRAPHIE</a>
-        <a href="categorie-b.html">CERTIFICAT</a>
-        <a href="categorie-c.html">ALBUM</a>
-        <a href="categorie-d.html">AUDIO PRODUCTION</a>
-        <a href="categorie-e.html">VIDEO PRODUCTION</a>
-        <a href="categorie-f.html">AI VIDEO PRODUCTION</a>
-        <a href="admin.html">Admin</a>
+        <a href="index.html">ACCUEIL</a>
+        <a href="categorie-a.html" style="color:#00d1ff;">BIOGRAPHIE</a>
+        <a href="categorie-b.txt">CERTIFICAT</a>
+        <a href="categorie-c.txt">ALBUM</a>
+        <a href="categorie-d.txt">AUDIO PRODUCTION</a>
+        <a href="categorie-e.txt">VIDEO PRODUCTION</a>
     </nav>
 
-    <main class="main-container">
-      <section style="padding: 40px; background: #ffffff; color: #000000; line-height: 1.8; font-family: 'Segoe UI', Arial, sans-serif; max-width: 1000px; margin: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-
-    <header style="border-bottom: 3px solid #003366; padding-bottom: 20px; margin-bottom: 35px;">
-        <h2 style="color: #003366; font-size: 2.8rem; margin: 0; font-weight: 800;">Biography</h2>
-        <p style="color: #006400; font-size: 1.3rem; font-weight: 600; margin-top: 5px; letter-spacing: 1px;">
-            Digital Content Strategist | Media Governance & Compliance Expert
-        </p>
-    </header>
-
-    <p style="font-size: 1.2rem; margin-bottom: 30px; text-align: justify;">
-        <strong>Meher Ferchichi</strong> is a distinguished editorial leader and digital transformation strategist with over <strong>20 years of comprehensive experience</strong> at the forefront of the media ecosystem. Combining a deep understanding of emerging technologies with rigorous expertise in regulatory frameworks, he has become a pivotal figure in modernizing public service media.
-    </p>
-
-    <div style="margin-bottom: 40px;">
-        <h3 style="color: #003366; font-size: 1.8rem; border-left: 6px solid #003366; padding-left: 15px; margin-bottom: 20px; background: rgba(0, 51, 102, 0.03); padding-top: 5px; padding-bottom: 5px;">
-            Strategic Leadership & Digital Transformation
-        </h3>
-        <p style="margin-bottom: 15px;">
-            As the current <strong>Digital Content Strategy Manager at Radio Tunisienne</strong>, Meher spearheads the organization’s transition into the digital age. His leadership has been instrumental in:
-        </p>
-        <ul style="list-style-type: none; padding-left: 10px;">
-            <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                <span style="color: #003366; position: absolute; left: 0;">⚡</span>
-                <strong>Web Ecosystem Overhaul:</strong> Orchestrating the strategic design, CMS administration, and successful execution of Radio Tunisienne’s new digital platforms.
-            </li>
-            <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                <span style="color: #003366; position: absolute; left: 0;">⚡</span>
-                <strong>Innovation through MoJo:</strong> Implementing advanced training programs in Mobile Journalism (MoJo) to optimize multi-platform content production.
-            </li>
-            <li style="margin-bottom: 15px; padding-left: 25px; position: relative;">
-                <span style="color: #003366; position: absolute; left: 0;">⚡</span>
-                <strong>AI Integration:</strong> Applying Artificial Intelligence to enhance news quality and verification, certified by <strong>ASBU</strong> and <strong>EBU Academy</strong>.
-            </li>
-        </ul>
-    </div>
-
-    <div style="margin-bottom: 40px; background: #f9f9f9; padding: 25px; border-radius: 10px; border: 1px solid #eee;">
-        <h3 style="color: #006400; font-size: 1.8rem; margin-bottom: 20px;">
-            Media Governance, Ethics & Compliance
-        </h3>
-        <p style="margin-bottom: 20px;">
-            Serving as a <strong>Media Regulatory Coordinator (2010–2023)</strong>, Meher has acted as a key liaison with national regulatory bodies such as <strong>HAICA</strong> and <strong>ISIE</strong>:
-        </p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div style="padding: 15px; border-top: 2px solid #006400;">
-                <h4 style="color: #006400; margin-top: 0;">Information Integrity</h4>
-                <p style="font-size: 0.95rem; margin: 0;">Enforcing strict ethical standards and fact-checking during critical electoral periods.</p>
+    <div class="cv-container">
+        <aside class="cv-sidebar">
+            <div class="sidebar-section">
+                <h3>Contact</h3>
+                <p>📞 00216 50 124 836 [cite: 5]</p>
+                <p>📧 meher.radio.tun@gmail.com [cite: 6]</p>
+                <p>🔗 linkedin.com/in/meherferchichi [cite: 6]</p>
             </div>
-            <div style="padding: 15px; border-top: 2px solid #006400;">
-                <h4 style="color: #006400; margin-top: 0;">High-Stakes Coordination</h4>
-                <p style="font-size: 0.95rem; margin: 0;">Managing editorial execution for major international events, including the <strong>2019 Arab Summit</strong>.</p>
+
+            <div class="sidebar-section">
+                <h3>Compétences</h3>
+                <div class="skill-tag">Digital Content Strategy [cite: 4]</div>
+                <div class="skill-tag">Mobile Journalism (MoJo) [cite: 4]</div>
+                <div class="skill-tag">Media Regulatory Compliance [cite: 4]</div>
+                <div class="skill-tag">Fact-Checking [cite: 4]</div>
+                <div class="skill-tag">Editorial Leadership [cite: 4]</div>
+                <div class="skill-tag">Media Ethics [cite: 4]</div>
+                <div class="skill-tag">Data Journalism [cite: 4]</div>
+                <div class="skill-tag">Project Management [cite: 4]</div>
             </div>
-        </div>
+
+            <div class="sidebar-section">
+                <h3>Langues</h3>
+                <p>• Arabe: Native [cite: 67]</p>
+                <p>• Français: Full Professional [cite: 68]</p>
+                <p>• Anglais: Advanced Working [cite: 69]</p>
+            </div>
+        </aside>
+
+        <main class="cv-main">
+            <section class="main-section">
+                <h2>À Propos</h2>
+                <p><strong>Digital Content Strategist & Media Governance Expert</strong> avec plus de 20 ans d'expérience[cite: 2, 7]. Expert en transformation digitale et conformité réglementaire des médias, spécialisé en MoJo et Fact-Checking[cite: 8, 9].</p>
+            </section>
+
+            <section class="main-section">
+                <h2>Expériences Professionnelles</h2>
+                
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Digital Content Strategy Manager & Media Trainer</span>
+                        <span class="exp-date">2023 - Present</span>
+                    </div>
+                    <p class="exp-company">Radio Tunisienne | Tunis, Tunisia [cite: 12]</p>
+                    <ul class="exp-desc">
+                        <li>Direction de la transition digitale et mise en œuvre de la stratégie de contenu cross-plateforme[cite: 13].</li>
+                        <li>Formation des équipes éditoriales aux techniques MoJo[cite: 14].</li>
+                        <li>Optimisation des plateformes web et expansion de l'empreinte numérique[cite: 15].</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Senior News Editor & Media Regulatory Coordinator</span>
+                        <span class="exp-date">2010 - 2023</span>
+                    </div>
+                    <p class="exp-company">Radio Tunisienne | Tunis, Tunisia [cite: 17, 18]</p>
+                    <ul class="exp-desc">
+                        <li>Coordination éditoriale et contrôle qualité/éthique[cite: 19].</li>
+                        <li>Gestion de la conformité réglementaire (HAICA, ISIE) et suivi électoral[cite: 20].</li>
+                        <li>Couverture d'événements majeurs (Sommet Arabe 2019)[cite: 22].</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="main-section">
+                <h2>Formation & Certifications</h2>
+                <div class="edu-item">
+                    <p><strong>Master en Journalisme et Sciences de l'Information</strong> [cite: 29]<br>
+                    Institut de Presse (IPSI) | Tunis (2001-2005) [cite: 30]</p>
+                </div>
+                <div class="edu-item">
+                    <p>• AI in News Quality Service (ASBU & EBU, 2023) [cite: 36]</p>
+                    <p>• Foundations of Data Journalism (EU / Deutsche Welle, 2019) [cite: 46, 47]</p>
+                    <p>• Media Law & Regulatory Compliance (DCAF, 2018) [cite: 52, 54, 55]</p>
+                </div>
+            </section>
+        </main>
     </div>
-
-    <div style="margin-bottom: 40px;">
-        <h3 style="color: #003366; font-size: 1.8rem; border-left: 6px solid #003366; padding-left: 15px; margin-bottom: 20px;">
-            Academic Background & Certifications
-        </h3>
-        <p>Meher holds a <strong>Master’s Degree from IPSI (Tunis)</strong>, specializing in Media Law and Ethics, complemented by international certifications:</p>
-        <p style="color: #555; font-size: 1rem; margin-left: 20px;">
-            • <strong>Global Governance:</strong> Media Law with <strong>DCAF (Geneva)</strong>.<br>
-            • <strong>Data Journalism:</strong> Data visualization with <strong>Deutsche Welle (DW)</strong>.<br>
-            • <strong>International Cooperation:</strong> WSIS Assistant with the <strong>ITU</strong>.
-        </p>
-    </div>
-
-    <div style="margin-bottom: 40px; display: flex; justify-content: space-around; background: #003366; color: white; padding: 20px; border-radius: 8px; text-align: center;">
-        <div><strong>Arabic</strong><br><span style="font-size: 0.8rem; opacity: 0.8;">Native</span></div>
-        <div><strong>French</strong><br><span style="font-size: 0.8rem; opacity: 0.8;">Full Professional</span></div>
-        <div><strong>English</strong><br><span style="font-size: 0.8rem; opacity: 0.8;">Advanced Working</span></div>
-    </div>
-
-    <footer style="margin-top: 60px; text-align: right; border-top: 1px solid #eee; padding-top: 20px;">
-        <p style="font-family: 'Georgia', serif; font-size: 2.2rem; color: #CC0000; font-style: italic; margin: 0;">
-            Meher Ferchichi
-        </p>
-        <p style="margin-top: 15px; color: #333; font-weight: bold;">
-            📧 meher.radio.tun@gmail.com<br>
-            🔗 <a href="https://linkedin.com/in/meherferchichi" style="color: #003366; text-decoration: none;">linkedin.com/in/meherferchichi</a>
-        </p>
-    </footer>
-
-</section>    </main>
 
 </body>
 </html>
