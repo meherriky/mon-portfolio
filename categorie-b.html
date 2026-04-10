@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CERTIFICATS - MEHER FERCHICHI</title>
+    <title>CERTIFICATES - MEHER FERCHICHI</title>
     <style>
-        /* --- STYLE DE BASE --- */
+        /* --- RESET & BASE STYLE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background-color: #fff; color: #333; line-height: 1.8; }
 
-        /* --- BANDEAU --- */
+        /* --- BANNER --- */
         .grande-photo-banner {
             width: 100%; height: 350px;
             background: #001f3f url('image profil.png') center/cover no-repeat;
@@ -28,7 +28,7 @@
         nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; text-shadow: 0 0 8px #00d1ff; }
         nav a:hover { color: #00d1ff; }
 
-        /* --- GRILLE DE CERTIFICATS --- */
+        /* --- CONTENT GRID --- */
         .main-container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
         h2.section-title { font-size: 2rem; color: #003366; text-transform: uppercase; margin-bottom: 40px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
         
@@ -54,7 +54,7 @@
         }
         .cert-card:hover .overlay { opacity: 1; transform: translateY(0); }
 
-        /* --- MODALE --- */
+        /* --- MODAL ZOOM --- */
         #zoneZoom {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.95); z-index: 2000; align-items: center; justify-content: center; padding: 20px;
@@ -77,7 +77,7 @@
 <body>
 
     <div class="grande-photo-banner">
-        <h1>Certifications</h1>
+        <h1>Professional Credentials</h1>
     </div>
 
     <nav>
@@ -91,33 +91,33 @@
     </nav>
 
     <main class="main-container">
-        <h2 class="section-title">Accréditations Professionnelles</h2>
+        <h2 class="section-title">Verified Certifications</h2>
         
         <div class="grid-certifs">
             
-            <div class="cert-card" onclick="ouvrirZoom('Benevolat ONU.jpeg', 'UIT - Nations Unies', 'Certificat d\'Assistant pour le Sommet Mondial sur la Société de l\'Information (Tunis 2005). Engagement au sein d\'un cadre de gouvernance internationale.')">
-                <img src="Benevolat ONU.jpeg" alt="Bénévolat ONU">
-                <div class="overlay"><strong>UIT - Nations Unies</strong><span>Sommet Mondial (SMSI)</span></div>
+            <div class="cert-card" onclick="ouvrirZoom('Benevolat ONU.jpeg', 'ITU - United Nations', 'Summit Assistant Certificate for the World Summit on the Information Society (WSIS). Provided logistical support and demonstrated professional conduct within an International Global Governance framework.')">
+                <img src="Benevolat ONU.jpeg" alt="UN Volunteer">
+                <div class="overlay"><strong>ITU - United Nations</strong><span>WSIS Global Summit</span></div>
             </div>
 
-            <div class="cert-card" onclick="ouvrirZoom('Data journalism.jpeg', 'Deutsche Welle & UE', 'Formation intensive sur les fondamentaux du data-journalisme : collecte, analyse et visualisation de données pour les médias.')">
+            <div class="cert-card" onclick="ouvrirZoom('Data journalism.jpeg', 'Deutsche Welle & EU', 'Professional training on the Foundations of Data Journalism. Focused on data analysis, information visualization, and digital storytelling techniques.')">
                 <img src="Data journalism.jpeg" alt="Data Journalism">
-                <div class="overlay"><strong>Deutsche Welle / UE</strong><span>Data Journalism</span></div>
+                <div class="overlay"><strong>Deutsche Welle / EU</strong><span>Data Journalism</span></div>
             </div>
 
-            <div class="cert-card" onclick="ouvrirZoom('DCAF.jpeg', 'DCAF Genève', 'Expertise en vulgarisation de l\'information juridique et judiciaire pour les journalistes professionnels.')">
-                <img src="DCAF.jpeg" alt="DCAF Genève">
-                <div class="overlay"><strong>DCAF Genève</strong><span>Information Juridique</span></div>
+            <div class="cert-card" onclick="ouvrirZoom('DCAF.jpeg', 'DCAF Geneva', 'Capacity building in the popularization of judicial and legal information for professional journalists. Focused on media law and regulatory compliance.')">
+                <img src="DCAF.jpeg" alt="DCAF Geneva">
+                <div class="overlay"><strong>DCAF Geneva</strong><span>Media Law & Legal Info</span></div>
             </div>
 
-            <div class="cert-card" onclick="ouvrirZoom('Geopolitique.jpeg', 'Friedrich Naumann Stiftung', 'Formation spécialisée sur les relations internationales et la couverture des conflits géopolitiques mondiaux.')">
-                <img src="Geopolitique.jpeg" alt="Géopolitique">
-                <div class="overlay"><strong>Friedrich Naumann</strong><span>Géopolitique & Conflits</span></div>
+            <div class="cert-card" onclick="ouvrirZoom('Geopolitique.jpeg', 'Friedrich Naumann Foundation', 'Specialized training in international relations and the coverage of global geopolitical conflicts. Advanced analysis of international political landscapes.')">
+                <img src="Geopolitique.jpeg" alt="Geopolitics">
+                <div class="overlay"><strong>Friedrich Naumann</strong><span>Geopolitics & Conflicts</span></div>
             </div>
 
-            <div class="cert-card" onclick="ouvrirZoom('RFI actualité politique.jpeg', 'RFI & Monte Carlo Doualiya', 'Attestation de stage sur la couverture de l\'actualité politique, les techniques de reportage et l\'animation de débats.')">
+            <div class="cert-card" onclick="ouvrirZoom('RFI actualité politique.jpeg', 'RFI & Monte Carlo Doualiya', 'Professional training on political news coverage: reporting and debate. Advanced skill development in investigative reporting and live broadcasting.')">
                 <img src="RFI actualité politique.jpeg" alt="RFI">
-                <div class="overlay"><strong>RFI / MCD</strong><span>Actualité Politique</span></div>
+                <div class="overlay"><strong>RFI / MCD</strong><span>Political Reporting</span></div>
             </div>
 
         </div>
@@ -130,7 +130,7 @@
             <div class="modal-text-side">
                 <h2 id="titreZoom" style="color:#003366; border-bottom:2px solid #00d1ff; padding-bottom:10px; margin-bottom:15px;"></h2>
                 <p id="descZoom" style="font-size:1.1rem; color:#555;"></p>
-                <p style="margin-top:30px; font-weight:bold; color:#00d1ff;">Document Vérifié</p>
+                <p style="margin-top:30px; font-weight:bold; color:#00d1ff;">Verified Document</p>
             </div>
         </div>
     </div>
