@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIOGRAPHY - MEHER FERCHICHI</title>
     <style>
-        /* --- RESET & STYLE --- */
+        /* --- RESET & STYLE DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background-color: #fff; color: #333; line-height: 1.8; }
 
@@ -24,35 +24,69 @@
 
         /* --- NAVIGATION --- */
         nav { background: #1a1a1a; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; }
-        nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 20px; font-weight: bold; transition: 0.3s; padding-bottom: 8px; }
-        nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; text-shadow: 0 0 8px #00d1ff; }
+        
+        /* Style des liens */
+        nav a { 
+            color: rgba(255, 255, 255, 0.6); 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-weight: bold; 
+            transition: 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Style de la page active (Allumée) */
+        nav a.active { 
+            color: #00d1ff; 
+            text-shadow: 0 0 10px rgba(0, 209, 255, 0.8);
+        }
+
+        /* Trait bleu sous le lien actif */
+        nav a.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #00d1ff;
+            box-shadow: 0 0 10px #00d1ff;
+        }
+
         nav a:hover { color: #00d1ff; }
 
-        /* --- LAYOUT PLEINE LARGEUR --- */
-        .bio-content { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
-        
-        section { margin-bottom: 60px; }
+        /* --- CONTENU PRINCIPAL --- */
+        .main-container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
 
-        /* --- JEU DE COULEURS TITRES --- */
-        h2 { font-size: 2.2rem; color: #003366; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h3 { font-size: 1.5rem; color: #003366; margin-bottom: 5px; }
-        h4 { color: #00d1ff; text-transform: uppercase; font-size: 1rem; margin-bottom: 15px; letter-spacing: 1px; }
+        /* --- COULEURS DES TITRES --- */
+        h2.section-title { 
+            font-size: 2.2rem; 
+            color: #003366; /* Bleu Marine */
+            margin-bottom: 15px; 
+            font-weight: 800; 
+            text-transform: uppercase;
+        }
 
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
-        .job-date { font-weight: bold; color: #00d1ff; font-size: 1.1rem; }
-        .location-info { font-style: italic; color: #7f8c8d; display: block; margin-bottom: 15px; }
+        .highlight-box { 
+            background: rgba(0, 100, 0, 0.05); 
+            border-left: 5px solid #006400; 
+            padding: 20px; 
+            margin: 30px 0; 
+            border-radius: 0 5px 5px 0; 
+        }
 
-        .list-items { list-style: none; padding-left: 0; margin-bottom: 30px; }
-        .list-items li { position: relative; padding-left: 25px; margin-bottom: 12px; text-align: justify; }
-        .list-items li::before { content: "▹"; position: absolute; left: 0; color: #00d1ff; font-weight: bold; }
+        .signature {
+            margin-top: 40px; 
+            text-align: right; 
+            padding-right: 20px;
+        }
 
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .skill-tag { border: 1px solid #00d1ff; color: #003366; padding: 5px 15px; border-radius: 5px; font-weight: bold; font-size: 0.9rem; }
-
-        .contact-info { background: #f9f9f9; padding: 30px; border-radius: 10px; text-align: center; border-top: 3px solid #003366; }
-        .contact-info p { margin: 10px 0; font-weight: bold; color: #003366; }
-
-        @media (max-width: 768px) { .job-header { flex-direction: column; } .grande-photo-banner h1 { font-size: 2.2rem; } }
+        @media (max-width: 768px) { 
+            .grande-photo-banner h1 { font-size: 2.2rem; }
+            nav a { margin: 5px 10px; font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -62,89 +96,59 @@
     </div>
 
     <nav>
-       <nav>
-        <a href="index.html">ACCEUIL</a>
-        <a href="categorie-a.html">BIOGRAPHIE</a>
-        <a href="categorie-b.html">CERTIFICAT</a>
+        <a href="index.html">HOME</a>
+        <a href="categorie-a.html" class="active">BIOGRAPHY</a>
+        <a href="categorie-b.html">CERTIFICATES</a>
         <a href="categorie-c.html">ALBUM</a>
         <a href="categorie-d.html">AUDIO PRODUCTION</a>
         <a href="categorie-e.html">VIDEO PRODUCTION</a>
         <a href="categorie-f.html">AI VIDEO PRODUCTION</a>
-        <a href="admin.html">Admin</a>
+        <a href="admin.html">ADMIN</a>
     </nav>
-    /* Style par défaut des liens */
-nav a { 
-    color: rgba(255, 255, 255, 0.6); /* Un peu éteint par défaut */
-    text-decoration: none; 
-    margin: 0 15px; 
-    font-weight: bold; 
-    transition: 0.3s;
-    position: relative;
-    padding-bottom: 5px;
-}
 
-/* Style de la page "Allumée" (Active) */
-nav a.active { 
-    color: #00d1ff; /* Bleu néon brillant */
-    text-shadow: 0 0 10px rgba(0, 209, 255, 0.8);
-}
-
-/* Petit trait contemporain sous le lien actif */
-nav a.active::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #00d1ff;
-    box-shadow: 0 0 10px #00d1ff;
-}
     <main class="main-container">
-     <section style="padding: 20px 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
-    
-    <h2 style="font-size: 2.2rem; color: #003366; margin-bottom: 15px; border: none; font-weight: 800;">
-        Welcome!
-    </h2>
-    
-    <p style="font-size: 1.2rem; color: #000000; line-height: 1.6; margin-bottom: 25px;">
-        I am a Digital Content Strategist and Media Governance Expert with over 20 years of experience.
-    </p>
+        <section style="font-family: 'Segoe UI', sans-serif;">
+            
+            <h2 class="section-title">Welcome!</h2>
+            
+            <p style="font-size: 1.2rem; color: #000; margin-bottom: 25px;">
+                I am a <strong>Digital Content Strategist</strong> and <strong>Media Governance Expert</strong> with over 20 years of experience.
+            </p>
 
-    <div style="background: rgba(0, 100, 0, 0.05); border-left: 5px solid #006400; padding: 20px; margin-bottom: 30px; border-radius: 0 5px 5px 0;">
-        <p style="margin: 0; color: #006400; font-size: 1.2rem; font-style: italic; font-weight: 600;">
-            "Navigating the intersection of media innovation and regulatory compliance."
-        </p>
-    </div>
+            <div class="highlight-box">
+                <p style="margin: 0; color: #006400; font-size: 1.2rem; font-style: italic; font-weight: 600;">
+                    "Navigating the intersection of media innovation and regulatory compliance."
+                </p>
+            </div>
 
-    <div style="color: #000000; font-size: 1.1rem; line-height: 1.8;">
-        <p style="margin-bottom: 15px;">
-            Throughout my career at <strong>Radio Tunisienne</strong>, I have dedicated myself to driving Digital Transformation, mastering Mobile Journalism (MoJo), and ensuring strict adherence to Media Ethics and Governance. 
-        </p>
-        
-        <p style="margin-bottom: 15px;">
-            From orchestrating international event coverage to implementing AI-driven news quality standards, my work focuses on building a credible, forward-thinking media ecosystem.
-        </p>
+            <div style="color: #000; font-size: 1.1rem;">
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Throughout my career at <strong>Radio Tunisienne</strong>, I have dedicated myself to driving Digital Transformation, mastering Mobile Journalism (MoJo), and ensuring strict adherence to Media Ethics and Governance.
+                </p>
+                
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    From orchestrating international event coverage to implementing AI-driven news quality standards, my work focuses on building a credible, forward-thinking media ecosystem.
+                </p>
 
-        <p style="margin-bottom: 15px;">
-            I am delighted to have you here. Whether you are looking for insights into media law, digital strategy, or the future of journalism, I hope this space provides the inspiration and information you seek.
-        </p>
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    I am delighted to have you here. Whether you are looking for insights into media law, digital strategy, or the future of journalism, I hope this space provides the inspiration and information you seek.
+                </p>
 
-        <p style="margin-top: 25px; font-weight: bold;">
-            Welcome aboard!
-        </p>
-    </div>
+                <p style="margin-top: 25px; font-weight: bold; color: #003366;">
+                    Welcome aboard!
+                </p>
+            </div>
 
-    <div style="margin-top: 40px; text-align: right; padding-right: 20px;">
-        <p style="font-family: 'Georgia', serif; font-size: 1.8rem; color: #CC0000; font-style: italic; margin: 0;">
-            Meher Ferchichi
-        </p>
-        <p style="color: #666; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">
-            Media Governance Expert
-        </p>
-    </div>
+            <div class="signature">
+                <p style="font-family: 'Georgia', serif; font-size: 1.8rem; color: #CC0000; font-style: italic; margin: 0;">
+                    Meher Ferchichi
+                </p>
+                <p style="color: #666; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">
+                    Media Governance Expert
+                </p>
+            </div>
 
-</section>
+        </section>
     </main>
 
 </body>
