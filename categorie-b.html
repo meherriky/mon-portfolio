@@ -25,7 +25,7 @@
         nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.85rem; transition: 0.3s; }
         nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; padding-bottom: 5px; }
 
-        /* --- GRILLE --- */
+        /* --- GRILLE & CARTES --- */
         .main-container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
         .cert-grid { display: grid; grid-template-columns: 1fr; gap: 50px; }
 
@@ -39,14 +39,14 @@
             border: 1px solid #eaeaea;
         }
 
-        /* --- EFFET DE SURVOL (NOUVEAU) --- */
+        /* --- EFFET IMAGE & ZOOM --- */
         .cert-image { 
             background: #eee; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             overflow: hidden; 
-            cursor: pointer; /* Indique que c'est cliquable */
+            cursor: pointer;
         }
         .cert-image img { 
             width: 100%; 
@@ -54,36 +54,33 @@
             object-fit: cover; 
             transition: transform 0.5s ease; 
         }
-        .cert-image:hover img { 
-            transform: scale(1.1); /* Zoom au survol */
-        }
+        .cert-image:hover img { transform: scale(1.1); }
 
         .cert-info { padding: 40px; }
         .cert-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #001f3f; margin-bottom: 10px; }
         .cert-org { font-weight: 600; color: #00d1ff; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 5px; display: block; }
         .cert-date { font-style: italic; color: #888; margin-bottom: 20px; display: block; font-size: 0.9rem; }
         .cert-desc { font-size: 0.95rem; margin-bottom: 20px; text-align: justify; color: #555; }
-        .competencies-title { font-weight: 700; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; color: #333; }
+        
         .competencies-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .competencies-list li { font-size: 0.85rem; padding-left: 15px; position: relative; color: #666; }
         .competencies-list li::before { content: "◆"; position: absolute; left: 0; color: #00d1ff; font-weight: bold; }
 
-        /* --- STYLE DE LA FENÊTRE MODALE (NOUVEAU) --- */
+        /* --- MODAL (FENÊTRE AGRANDIE) --- */
         .modal {
-            display: none; /* Caché par défaut */
+            display: none; 
             position: fixed;
             z-index: 2000;
             padding-top: 50px;
             left: 0; top: 0;
             width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.9);
-            text-align: center;
         }
         .modal-content {
             margin: auto;
             display: block;
-            max-width: 80%;
-            max-height: 80%;
+            max-width: 85%;
+            max-height: 85%;
             border: 3px solid #00d1ff;
             border-radius: 10px;
         }
@@ -91,7 +88,7 @@
             position: absolute;
             top: 20px; right: 35px;
             color: #fff;
-            font-size: 40px;
+            font-size: 50px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -132,9 +129,9 @@
                 </div>
                 <div class="cert-info">
                     <span class="cert-org">International Telecommunication Union (ITU)</span>
-                    <h2 class="cert-title">World Summit on the Information Society (WSIS)</h2>
+                    <h2 class="cert-title">Contribution to the World Summit on the Information Society</h2>
                     <span class="cert-date">November 2005</span>
-                    <p class="cert-desc">Official certification testifying to early engagement in global information governance during the phase of WSIS in Tunis.</p>
+                    <p class="cert-desc">Official certification for engagement in global information governance during the WSIS in Tunis.</p>
                 </div>
             </div>
 
@@ -146,15 +143,74 @@
                     <span class="cert-org">RFI & Monte Carlo Doualiya</span>
                     <h2 class="cert-title">Political Journalism & Media Debate</h2>
                     <span class="cert-date">2011</span>
-                    <p class="cert-desc">Intensive program focused on political news coverage during a pivotal period.</p>
+                    <p class="cert-desc">Intensive program on political reporting and pluralistic debate management.</p>
                 </div>
             </div>
 
+            <div class="cert-card">
+                <div class="cert-image" onclick="openModal('DCAF.jpg')">
+                    <img src="DCAF.jpg" alt="DCAF Certification">
+                </div>
+                <div class="cert-info">
+                    <span class="cert-org">DCAF Geneva</span>
+                    <h2 class="cert-title">Judicial & Legal Information Dissemination</h2>
+                    <span class="cert-date">2018</span>
+                    <p class="cert-desc">Specialization in popularizing legal information and regulatory compliance.</p>
+                </div>
             </div>
+
+            <div class="cert-card">
+                <div class="cert-image" onclick="openModal('radio numérique.jpg')">
+                    <img src="radio numérique.jpg" alt="Digital Radio">
+                </div>
+                <div class="cert-info">
+                    <span class="cert-org">CAPJC Tunis</span>
+                    <h2 class="cert-title">Digital Radio Journalism</h2>
+                    <span class="cert-date">May 2007</span>
+                    <p class="cert-desc">Professional certification in digital broadcasting workflows and modern newsroom tools.</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-image" onclick="openModal('redaction radio.jpg')">
+                    <img src="redaction radio.jpg" alt="Radio Writing">
+                </div>
+                <div class="cert-info">
+                    <span class="cert-org">Ministry of Communication / CAPJC</span>
+                    <h2 class="cert-title">Radio News Writing & Presentation</h2>
+                    <span class="cert-date">February 2010</span>
+                    <p class="cert-desc">Mastery of radio scriptwriting and information structure for live delivery.</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-image" onclick="openModal('data journalism.jpg')">
+                    <img src="data journalism.jpg" alt="Data Journalism">
+                </div>
+                <div class="cert-info">
+                    <span class="cert-org">European Union & DW Akademie</span>
+                    <h2 class="cert-title">Advanced Data Journalism Fundamentals</h2>
+                    <span class="cert-date">2019</span>
+                    <p class="cert-desc">Expertise in data analysis and visual storytelling for digital news platforms.</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-image" onclick="openModal('AI and Combating Fake News.jpg')">
+                    <img src="AI and Combating Fake News.jpg" alt="AI Certification">
+                </div>
+                <div class="cert-info">
+                    <span class="cert-org">ASBU & EBU Academy</span>
+                    <h2 class="cert-title">Artificial Intelligence in Journalism</h2>
+                    <span class="cert-date">2023 - 2024</span>
+                    <p class="cert-desc">Specialized training in AI tools for news verification and digital content strategy.</p>
+                </div>
+            </div>
+
+        </div>
     </main>
 
     <script>
-        // Fonction pour ouvrir la fenêtre modale
         function openModal(imgSrc) {
             var modal = document.getElementById("imageModal");
             var modalImg = document.getElementById("imgFull");
@@ -162,12 +218,10 @@
             modalImg.src = imgSrc;
         }
 
-        // Fermer la fenêtre au clic sur le X
         document.querySelector(".close-modal").onclick = function() {
             document.getElementById("imageModal").style.display = "none";
         }
 
-        // Fermer la fenêtre au clic à l'extérieur de l'image
         window.onclick = function(event) {
             var modal = document.getElementById("imageModal");
             if (event.target == modal) {
