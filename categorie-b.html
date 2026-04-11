@@ -9,23 +9,11 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background-color: #f4f7f9; color: #333; line-height: 1.6; }
 
-        /* --- BANNIÈRE --- */
-        .grande-photo-banner {
-            width: 100%; height: 400px;
-            background: #001f3f url('image profil.png') center/cover no-repeat;
-            display: flex; align-items: center; justify-content: center;
-            position: relative; text-align: center;
-        }
-        .grande-photo-banner::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); }
-        .banner-content { position: relative; z-index: 2; color: white; }
-        .main-name { font-size: 3rem; letter-spacing: 5px; text-transform: uppercase; font-family: 'Playfair Display', serif; }
-
         /* --- NAVIGATION --- */
         nav { background: #1a1a1a; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; }
         nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.85rem; transition: 0.3s; }
         nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; padding-bottom: 5px; }
 
-        /* --- GRILLE & CARTES --- */
         .main-container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
         .cert-grid { display: grid; grid-template-columns: 1fr; gap: 50px; }
 
@@ -39,7 +27,7 @@
             border: 1px solid #eaeaea;
         }
 
-        /* --- EFFET IMAGE & ZOOM --- */
+        /* --- ZONE IMAGE ET SURVOL --- */
         .cert-image { 
             background: #eee; 
             display: flex; 
@@ -47,6 +35,7 @@
             justify-content: center; 
             overflow: hidden; 
             cursor: pointer;
+            height: 100%;
         }
         .cert-image img { 
             width: 100%; 
@@ -59,14 +48,9 @@
         .cert-info { padding: 40px; }
         .cert-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #001f3f; margin-bottom: 10px; }
         .cert-org { font-weight: 600; color: #00d1ff; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 5px; display: block; }
-        .cert-date { font-style: italic; color: #888; margin-bottom: 20px; display: block; font-size: 0.9rem; }
-        .cert-desc { font-size: 0.95rem; margin-bottom: 20px; text-align: justify; color: #555; }
+        .cert-date { font-style: italic; color: #888; margin-bottom: 15px; display: block; }
         
-        .competencies-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .competencies-list li { font-size: 0.85rem; padding-left: 15px; position: relative; color: #666; }
-        .competencies-list li::before { content: "◆"; position: absolute; left: 0; color: #00d1ff; font-weight: bold; }
-
-        /* --- MODAL (FENÊTRE AGRANDIE) --- */
+        /* --- MODAL (Lightbox) --- */
         .modal {
             display: none; 
             position: fixed;
@@ -103,13 +87,6 @@
         <img class="modal-content" id="imgFull">
     </div>
 
-    <div class="grande-photo-banner">
-        <div class="banner-content">
-            <h1 class="main-name">Meher Ferchichi</h1>
-            <p>PROFESSIONAL CERTIFICATIONS & AWARDS</p>
-        </div>
-    </div>
-
     <nav>
         <a href="index.html">HOME</a>
         <a href="categorie-a.html">BIOGRAPHY</a>
@@ -124,62 +101,62 @@
         <div class="cert-grid">
 
             <div class="cert-card">
-                <div class="cert-image" onclick="openModal('Benevolat ONU.jpeg')">
-                    <img src="Benevolat ONU.jpeg" alt="SMSI Certification">
+                <div class="cert-image" onclick="openModal('Benevolat ONU.jpg')">
+                    <img src="Benevolat ONU.jpg" alt="Certification SMSI UIT">
                 </div>
                 <div class="cert-info">
                     <span class="cert-org">International Telecommunication Union (ITU)</span>
-                    <h2 class="cert-title">Contribution to the World Summit on the Information Society</h2>
+                    <h2 class="cert-title">World Summit on the Information Society (WSIS)</h2>
                     <span class="cert-date">November 2005</span>
-                    <p class="cert-desc">Official certification for engagement in global information governance during the WSIS in Tunis.</p>
+                    <p>Certification officielle pour la contribution au sommet mondial SMSI à Tunis.</p>
                 </div>
             </div>
 
             <div class="cert-card">
-                <div class="cert-image" onclick="openModal('RFI actualité politique.jpeg')">
-                    <img src="RFI actualité politique.jpeg" alt="RFI Certification">
+                <div class="cert-image" onclick="openModal('RFI actualité politique.jpg')">
+                    <img src="RFI actualité politique.jpg" alt="Certification RFI">
                 </div>
                 <div class="cert-info">
                     <span class="cert-org">RFI & Monte Carlo Doualiya</span>
                     <h2 class="cert-title">Political Journalism & Media Debate</h2>
-                    <span class="cert-date">2011</span>
-                    <p class="cert-desc">Intensive program on political reporting and pluralistic debate management.</p>
+                    <span class="cert-date">April - May 2011</span>
+                    <p>Formation intensive sur la couverture de l'actualité politique et les débats médiatiques.</p>
                 </div>
             </div>
 
             <div class="cert-card">
-                <div class="cert-image" onclick="openModal('DCAF.jpeg')">
-                    <img src="DCAF.jpeg" alt="DCAF Certification">
+                <div class="cert-image" onclick="openModal('DCAF.jpg')">
+                    <img src="DCAF.jpg" alt="Certification DCAF">
                 </div>
                 <div class="cert-info">
                     <span class="cert-org">DCAF Geneva</span>
                     <h2 class="cert-title">Judicial & Legal Information Dissemination</h2>
                     <span class="cert-date">2018</span>
-                    <p class="cert-desc">Specialization in popularizing legal information and regulatory compliance.</p>
+                    <p>Expertise en vulgarisation de l'information juridique et conformité réglementaire.</p>
                 </div>
             </div>
 
             <div class="cert-card">
-                <div class="cert-image" onclick="openModal('radio numérique.jpeg')">
-                    <img src="radio numérique.jpeg" alt="Digital Radio">
+                <div class="cert-image" onclick="openModal('radio numérique.jpg')">
+                    <img src="radio numérique.jpg" alt="Radio Numérique">
                 </div>
                 <div class="cert-info">
                     <span class="cert-org">CAPJC Tunis</span>
                     <h2 class="cert-title">Digital Radio Journalism</h2>
                     <span class="cert-date">May 2007</span>
-                    <p class="cert-desc">Professional certification in digital broadcasting workflows and modern newsroom tools.</p>
+                    <p>Maîtrise des outils de production numérique et flux de travail radio moderne.</p>
                 </div>
             </div>
 
             <div class="cert-card">
-                <div class="cert-image" onclick="openModal('redaction radio.jpeg')">
-                    <img src="redaction radio.jpeg" alt="Radio Writing">
+                <div class="cert-image" onclick="openModal('redaction radio.jpg')">
+                    <img src="redaction radio.jpg" alt="Rédaction Radio">
                 </div>
                 <div class="cert-info">
                     <span class="cert-org">Ministry of Communication / CAPJC</span>
                     <h2 class="cert-title">Radio News Writing & Presentation</h2>
                     <span class="cert-date">February 2010</span>
-                    <p class="cert-desc">Mastery of radio scriptwriting and information structure for live delivery.</p>
+                    <p>Certification en rédaction de l'information radio et présentation en direct.</p>
                 </div>
             </div>
 
@@ -190,8 +167,8 @@
                 <div class="cert-info">
                     <span class="cert-org">European Union & DW Akademie</span>
                     <h2 class="cert-title">Advanced Data Journalism Fundamentals</h2>
-                    <span class="cert-date">2019</span>
-                    <p class="cert-desc">Expertise in data analysis and visual storytelling for digital news platforms.</p>
+                    <span class="cert-date">February 2019</span>
+                    <p>Analyse de données et visualisation d'information pour les salles de rédaction.</p>
                 </div>
             </div>
 
@@ -203,7 +180,7 @@
                     <span class="cert-org">ASBU & EBU Academy</span>
                     <h2 class="cert-title">Artificial Intelligence in Journalism</h2>
                     <span class="cert-date">2023 - 2024</span>
-                    <p class="cert-desc">Specialized training in AI tools for news verification and digital content strategy.</p>
+                    <p>Intégration de l'IA pour la vérification des faits et l'amélioration de la qualité éditoriale.</p>
                 </div>
             </div>
 
@@ -217,18 +194,13 @@
             modal.style.display = "block";
             modalImg.src = imgSrc;
         }
-
         document.querySelector(".close-modal").onclick = function() {
             document.getElementById("imageModal").style.display = "none";
         }
-
         window.onclick = function(event) {
             var modal = document.getElementById("imageModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+            if (event.target == modal) { modal.style.display = "none"; }
         }
     </script>
-
 </body>
 </html>
