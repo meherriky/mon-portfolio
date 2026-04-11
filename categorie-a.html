@@ -4,93 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIOGRAPHY - MEHER FERCHICHI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- RESET & STYLE DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #fff; color: #333; line-height: 1.8; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; line-height: 1.8; }
 
-        /* --- STYLE DE LA BANNIÈRE --- */
+        /* --- BANNIÈRE UNIFIÉE --- */
         .grande-photo-banner {
-            width: 100%; height: 500px;
+            width: 100%; height: 450px;
             background: #001f3f url('image profil.png') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center;
             position: relative; text-align: center;
         }
         .grande-photo-banner::after { 
             content: ""; position: absolute; top:0; left:0; width:100%; height:100%; 
-            background: rgba(0,0,0,0.5); 
+            background: rgba(0, 31, 63, 0.6); 
         }
-
-        .banner-content { position: relative; z-index: 2; }
-
-        .main-name {
-            font-size: 3.5rem; color: white;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            letter-spacing: 8px; text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .journalist-line {
-            font-family: 'Georgia', serif; font-style: italic; font-size: 1.8rem;
-            color: #00d1ff; display: flex; align-items: center; justify-content: center; gap: 15px;
-            margin-bottom: 8px;
-        }
-
-        .mini-flag {
-            width: 35px; height: auto; border-radius: 4px;
-            box-shadow: 0 0 10px rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .strategist-line {
-            font-family: 'Verdana', sans-serif; font-weight: bold; font-size: 1.1rem;
-            color: #ffd700; letter-spacing: 4px; text-transform: uppercase;
-        }
+        .banner-content { position: relative; z-index: 2; color: white; }
+        .main-name { font-family: 'Playfair Display', serif; font-size: 3.5rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; }
+        .journalist-line { font-size: 1.4rem; color: #00d1ff; font-weight: 300; letter-spacing: 2px; }
 
         /* --- NAVIGATION --- */
-        nav { 
-            background: #1a1a1a; padding: 20px; text-align: center; 
-            position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; 
-        }
-        nav a { 
-            color: rgba(255, 255, 255, 0.6); text-decoration: none; 
-            margin: 0 15px; font-weight: bold; transition: 0.3s; font-size: 0.85rem;
-        }
+        nav { background: #1a1a1a; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; }
+        nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.85rem; transition: 0.3s; }
         nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; padding-bottom: 5px; }
         nav a:hover { color: #00d1ff; }
 
         /* --- CONTENU BIOGRAPHIE --- */
-        .bio-content { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
-        
-        section { margin-bottom: 50px; }
-        h2 { 
-            font-size: 1.8rem; color: #003366; text-transform: uppercase; 
-            border-bottom: 2px solid #eee; margin-bottom: 25px; padding-bottom: 5px;
+        .bio-container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #001f3f;
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px; }
-        .job-header h3 { color: #222; font-size: 1.3rem; }
-        .job-date { font-weight: bold; color: #00d1ff; }
-        .location-info { display: block; color: #666; font-style: italic; margin-bottom: 10px; }
-
-        .list-items { margin-left: 20px; margin-bottom: 20px; }
-        .list-items li { margin-bottom: 8px; }
-
-        /* SKILLS */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-        .skill-tag { 
-            background: #f0f7ff; color: #003366; padding: 5px 15px; 
-            border-radius: 20px; font-size: 0.9rem; font-weight: bold; border: 1px solid #d0e7ff;
+        .sub-main-title {
+            font-size: 1.1rem;
+            color: #c5a059;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            display: block;
         }
 
-        .contact-info { 
-            background: #1a1a1a; color: white; padding: 40px; 
-            border-radius: 10px; text-align: center; margin-top: 60px;
+        .intro-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #555;
+            border-left: 5px solid #00d1ff;
+            padding-left: 25px;
+            margin-bottom: 60px;
+            text-align: justify;
         }
-        .contact-info p { margin-bottom: 10px; }
+
+        /* --- SECTIONS CHRONOLOGIQUES --- */
+        .bio-section { margin-bottom: 50px; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #001f3f;
+        }
+
+        .section-header .years {
+            background: #001f3f;
+            color: #fff;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            margin-right: 20px;
+            font-weight: 600;
+        }
+
+        h3.focus-title {
+            color: #003366;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bio-list { list-style: none; margin-bottom: 30px; }
+        .bio-list li { margin-bottom: 20px; position: relative; padding-left: 30px; }
+        .bio-list li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: #00d1ff;
+            font-size: 0.8rem;
+            top: 2px;
+        }
+
+        .list-title { font-weight: 700; color: #333; display: block; }
+
+        /* --- COMPETENCIES & EDUCATION --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+
+        .skill-item h4 {
+            font-family: 'Playfair Display', serif;
+            color: #001f3f;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #c5a059;
+            display: inline-block;
+        }
+
+        .skill-item p { font-size: 0.9rem; color: #666; }
 
         @media (max-width: 768px) {
-            .main-name { font-size: 2.2rem; }
-            .job-header { flex-direction: column; }
+            .main-name { font-size: 2.5rem; }
+            .main-title { font-size: 2rem; }
+            .section-header { flex-direction: column; align-items: flex-start; }
+            .section-header .years { margin-bottom: 10px; }
         }
     </style>
 </head>
@@ -99,11 +145,7 @@
     <div class="grande-photo-banner">
         <div class="banner-content">
             <h1 class="main-name">Meher Ferchichi</h1>
-            <div class="journalist-line">
-                <span>TUNISIAN JOURNALIST</span>
-                <img src="https://flagcdn.com/w80/tn.png" alt="Tunisia Flag" class="mini-flag">
-            </div>
-            <div class="strategist-line">DIGITAL CONTENT STRATEGIST</div>
+            <p class="journalist-line">Digital Content Strategist</p>
         </div>
     </div>
 
@@ -117,69 +159,102 @@
         <a href="categorie-f.html">AI VIDEO PRODUCTION</a>
     </nav>
 
-    <div class="bio-content">
-        
-        <section>
-            <h2>About Me</h2>
-            <p style="font-size: 1.1rem; text-align: justify;">
-                Digital Content Strategist & Media Governance Expert with 20+ years of comprehensive experience across the media ecosystem. A proven Editorial Leader who has successfully driven Digital Transformation initiatives while ensuring strict Media Regulatory Compliance.
-            </p>
-        </section>
+    <div class="bio-container">
+        <h1 class="main-title">Professional Biography</h1>
+        <span class="sub-main-title">Digital Content Strategist | Media Governance & Compliance Expert</span>
 
-        <section>
-            <h2>Professional Experience</h2>
+        <p class="intro-text">
+            Meher Ferchichi is a seasoned media professional and digital strategist with a career spanning over two decades of excellence in journalism, regulatory oversight, and digital transformation. Throughout his journey from field reporting to executive digital leadership, he has consistently demonstrated a unique ability to bridge the gap between traditional journalistic integrity and modern technological innovation.
+        </p>
 
-            <div class="job-header">
-                <h3>Digital Content Strategy Manager & Media Trainer</h3>
-                <span class="job-date">2023 - Present</span>
+        <section class="bio-section">
+            <div class="section-header">
+                <span class="years">2023 – Present</span>
+                <h2>Executive Leadership & Digital Transformation</h2>
             </div>
-            <span class="location-info">Radio Tunisienne | Tunis, Tunisia</span>
-            <ul class="list-items">
-                <li>Directed the organization's digital transition by designing and implementing a comprehensive Digital Content Strategy.</li>
-                <li>Trained editorial teams on Mobile Journalism (MoJo) techniques and best practices.</li>
-                <li>Ensured all digital content maintained strict adherence to media ethics.</li>
-            </ul>
-
-            <div class="job-header">
-                <h3>Senior News Editor & Media Regulatory Coordinator</h3>
-                <span class="job-date">2010 - 2023</span>
-            </div>
-            <span class="location-info">Radio Tunisienne | Tunis, Tunisia</span>
-            <ul class="list-items">
-                <li>Managed strict Media Regulatory Compliance with national bodies (HAICA, ISIE) during Electoral Monitoring.</li>
-                <li>Orchestrated live coverage for high-profile international events, including the 2019 Arab Summit.</li>
+            <h3 class="focus-title">Currently serving as the Digital Content Strategy Manager & Media Trainer for Radio Tunisienne, Meher is the chief architect of the organization’s digital evolution. His leadership focuses on:</h3>
+            
+            <ul class="bio-list">
+                <li>
+                    <span class="list-title">Infrastructure Modernization:</span>
+                    Successfully leading the end-to-end project management, CMS (Content Management System) administration, and execution of Radio Tunisienne’s new suite of digital platforms.
+                </li>
+                <li>
+                    <span class="list-title">Innovation in Production:</span>
+                    Implementing comprehensive training programs in Mobile Journalism (MoJo), empowering editorial teams to produce high-impact, digital-first content.
+                </li>
+                <li>
+                    <span class="list-title">Emerging Technologies:</span>
+                    Pioneering the integration of Artificial Intelligence (AI) to enhance news quality and digital verification, certified by the ASBU and EBU Academy.
+                </li>
             </ul>
         </section>
 
-        <section>
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Digital Content Strategy</span>
-                <span class="skill-tag">Mobile Journalism (MoJo)</span>
-                <span class="skill-tag">Fact-Checking</span>
-                <span class="skill-tag">Media Governance</span>
-                <span class="skill-tag">Electoral Monitoring</span>
-                <span class="skill-tag">Live Broadcasting</span>
-                <span class="skill-tag">AI in News Quality</span>
+        <section class="bio-section">
+            <div class="section-header">
+                <span class="years">2010 – 2023</span>
+                <h2>Regulatory Coordination & Senior Editorial Management</h2>
             </div>
+            <h3 class="focus-title">As a Senior News Editor & Media Regulatory Coordinator, Meher spent over a decade ensuring that high-level broadcasts met the most stringent ethical and legal standards.</h3>
+
+            <ul class="bio-list">
+                <li>
+                    <span class="list-title">Compliance & Governance:</span>
+                    Acting as the primary liaison for national regulatory bodies (HAICA, ISIE), he authored exhaustive compliance reports and enforced rigorous standards during critical periods such as National Elections.
+                </li>
+                <li>
+                    <span class="list-title">Global Event Orchestration:</span>
+                    Directed the live coverage and editorial execution for high-profile international events, most notably the 2019 Arab Summit.
+                </li>
+                <li>
+                    <span class="list-title">Strategic Oversight:</span>
+                    Maintained total editorial control and quality assurance across complex broadcasting environments.
+                </li>
+            </ul>
         </section>
 
-        <section>
-            <h2>Education</h2>
-            <div class="job-header">
-                <h3>Master's Degree in Journalism</h3>
-                <span class="job-date">2001 - 2005</span>
+        <section class="bio-section">
+            <div class="section-header">
+                <span class="years">2006 – 2010</span>
+                <h2>Foundations in Journalism & Field Reporting</h2>
             </div>
-            <span class="location-info">IPSI | Tunis, Tunisia</span>
-            <p>Specialization in Media Law and Ethics.</p>
+            <h3 class="focus-title">Meher’s career is rooted in the core disciplines of newsgathering and dissemination. As a Journalist, Reporter & News Anchor, he developed the foundational skills that inform his current strategic roles:</h3>
+
+            <ul class="bio-list">
+                <li>
+                    <span class="list-title">Live Broadcasting:</span>
+                    Gained extensive experience as a news anchor, managing real-time information flow during live flashes and broadcasts.
+                </li>
+                <li>
+                    <span class="list-title">In-depth Reporting:</span>
+                    Conducted field investigations and interviews focused on socio-economic and political affairs, refining his scriptwriting and analytical capabilities.
+                </li>
+            </ul>
         </section>
 
-        <div class="contact-info">
-            <p>📞 00216 50 124 836 | ✉️ meher.radio.tun@gmail.com</p>
-            <p>🔗 linkedin.com/in/meherferchichi</p>
-            <p>Languages: Arabic (Native), French (Full Professional), English (Advanced Working)</p>
-        </div>
-
+        <section class="bio-section">
+            <div class="section-header">
+                <h2>Education, Certifications & Core Competencies</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h4>Academic & Global</h4>
+                    <p>Graduate with a Master’s Degree in Journalism and Information Science from IPSI (2005). Served as a Summit Assistant for the ITU during the World Summit on the Information Society (WSIS).</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Specialized Certifications</h4>
+                    <p>Media Law & Governance with DCAF (Geneva). Fact-Checking & Data Journalism from Deutsche Welle (DW) and the EBU Academy.</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Core Competencies</h4>
+                    <p><strong>Languages:</strong> Native Arabic, Full Professional French, Advanced Working English.<br>
+                    <strong>Technical:</strong> CMS Administration, SEO, AI-driven news services.<br>
+                    <strong>Admin:</strong> Project Management, Regulatory Reporting.</p>
+                </div>
+            </div>
+        </section>
     </div>
+
 </body>
 </html>
