@@ -7,36 +7,69 @@
     <style>
         /* --- RESET & STYLE DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #fff; color: #333; line-height: 1.8; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fff; color: #333; line-height: 1.8; overflow-x: hidden; }
 
-        /* --- BANDEAU PHOTO --- */
+        /* --- STYLE DE LA BANNIÈRE (Cohérence Charte) --- */
         .grande-photo-banner {
-            width: 100%; height: 400px;
+            width: 100%; height: 500px;
             background: #001f3f url('image profil.png') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center;
-            position: relative;
+            position: relative; text-align: center;
         }
-        .grande-photo-banner::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.3); }
-        .grande-photo-banner h1 {
-            position: relative; z-index: 2; font-size: 3.5rem; color: white;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.5); letter-spacing: 8px; text-transform: uppercase;
+        .grande-photo-banner::after { 
+            content: ""; position: absolute; top:0; left:0; width:100%; height:100%; 
+            background: rgba(0,0,0,0.5); 
+        }
+
+        .banner-content { position: relative; z-index: 2; }
+
+        .main-name {
+            font-size: 3.5rem; color: white;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            letter-spacing: 8px; text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .journalist-line {
+            font-family: 'Georgia', serif; font-style: italic; font-size: 1.8rem;
+            color: #00d1ff; display: flex; align-items: center; justify-content: center; gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        .mini-flag {
+            width: 35px; height: auto; border-radius: 4px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .strategist-line {
+            font-family: 'Verdana', sans-serif; font-weight: bold; font-size: 1.1rem;
+            color: #ffd700; letter-spacing: 4px; text-transform: uppercase;
         }
 
         /* --- NAVIGATION --- */
-        nav { background: #1a1a1a; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; }
-        nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; padding-bottom: 8px; font-size: 0.85rem; }
-        nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; text-shadow: 0 0 8px #00d1ff; }
+        nav { 
+            background: #1a1a1a; padding: 20px; text-align: center; 
+            position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; 
+        }
+        nav a { 
+            color: rgba(255, 255, 255, 0.6); text-decoration: none; 
+            margin: 0 15px; font-weight: bold; transition: 0.3s; font-size: 0.85rem;
+        }
+        nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; padding-bottom: 5px; text-shadow: 0 0 8px #00d1ff; }
         nav a:hover { color: #00d1ff; }
 
         /* --- CONTENU --- */
         .main-container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        h2.section-title { font-size: 2.2rem; color: #003366; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        h2.section-title { 
+            font-size: 2.2rem; color: #003366; text-transform: uppercase; 
+            letter-spacing: 2px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; 
+        }
 
         /* --- GRILLE AI --- */
         .ai-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
             margin-top: 30px;
         }
 
@@ -45,14 +78,15 @@
             border-radius: 15px;
             overflow: hidden;
             border: 1px solid #e0e0e0;
-            transition: 0.4s;
+            transition: 0.4s ease;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .ai-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 209, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 209, 255, 0.25);
             border-color: #00d1ff;
         }
 
@@ -73,33 +107,51 @@
             flex-grow: 1;
         }
 
-        .ai-info h3 {
-            color: #003366;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
         .ai-tag {
             display: inline-block;
-            background: #00d1ff;
+            background: linear-gradient(45deg, #003366, #00d1ff);
             color: white;
-            font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-bottom: 10px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ai-info h3 {
+            color: #003366;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .ai-info p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: justify;
         }
 
         @media (max-width: 850px) {
-            .grande-photo-banner h1 { font-size: 2.2rem; }
+            .main-name { font-size: 2.2rem; }
+            .journalist-line { font-size: 1.3rem; }
             nav a { margin: 5px; font-size: 0.75rem; }
+            .grande-photo-banner { height: 400px; }
         }
     </style>
 </head>
 <body>
 
     <div class="grande-photo-banner">
-        <h1>Meher Ferchichi</h1>
+        <div class="banner-content">
+            <h1 class="main-name">Meher Ferchichi</h1>
+            <div class="journalist-line">
+                <span>TUNISIAN JOURNALIST</span>
+                <img src="https://flagcdn.com/w80/tn.png" alt="Tunisia Flag" class="mini-flag">
+            </div>
+            <div class="strategist-line">DIGITAL CONTENT STRATEGIST</div>
+        </div>
     </div>
 
     <nav>
@@ -114,8 +166,8 @@
 
     <main class="main-container">
         <h2 class="section-title">AI Video Production Portfolio</h2>
-        <p style="margin-bottom: 40px; color: #666;">
-            Innovation through Generative AI: Exploring new frontiers in journalism and digital storytelling.
+        <p style="margin-bottom: 40px; color: #666; font-style: italic; font-size: 1.1rem;">
+            Innovation through Generative AI: Exploring new frontiers in journalism, automated storytelling, and synthetic media.
         </p>
 
         <div class="ai-grid">
@@ -125,9 +177,9 @@
                     <iframe src="https://www.youtube.com/embed/votre_id_ici" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="ai-info">
-                    <span class="ai-tag">Synthetized News</span>
+                    <span class="ai-tag">Synthesized News</span>
                     <h3>AI Avatar Presenter</h3>
-                    <p>Testing synthetic news anchors for rapid information dissemination in multiple languages.</p>
+                    <p>Development and testing of synthetic news anchors to enable rapid, multi-language information dissemination and 24/7 news cycle support.</p>
                 </div>
             </div>
 
@@ -138,7 +190,18 @@
                 <div class="ai-info">
                     <span class="ai-tag">Generative Art</span>
                     <h3>Storyboarding with AI</h3>
-                    <p>Using AI tools to generate complex visual backgrounds and cinematic sequences from text scripts.</p>
+                    <p>Leveraging advanced generative tools to create cinematic backgrounds and visual assets from text-based scripts for immersive documentaries.</p>
+                </div>
+            </div>
+
+            <div class="ai-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/votre_id_ici" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="ai-info">
+                    <span class="ai-tag">Data Visualization</span>
+                    <h3>AI-Driven News Reports</h3>
+                    <p>Automated video creation based on real-time data trends, focusing on high-accuracy information extraction and visual representation.</p>
                 </div>
             </div>
 
