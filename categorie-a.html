@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIOGRAPHY - MEHER FERCHICHI</title>
     <style>
-         /* --- RESET & STYLE DE BASE --- */
+        /* --- RESET & STYLE DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background-color: #fff; color: #333; line-height: 1.8; overflow-x: hidden; }
 
         /* --- STYLE DE LA BANNIÈRE --- */
         .grande-photo-banner {
-            width: 100%; height: 500px; /* Un peu plus haut pour les 3 lignes */
+            width: 100%; height: 500px;
             background: #001f3f url('image profil.png') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center;
             position: relative; text-align: center;
         }
-        /* Voile sombre pour lire le texte */
         .grande-photo-banner::after { 
             content: ""; position: absolute; top:0; left:0; width:100%; height:100%; 
             background: rgba(0,0,0,0.5); 
@@ -24,7 +23,6 @@
 
         .banner-content { position: relative; z-index: 2; }
 
-        /* Ligne 1 : Nom et Prénom */
         .main-name {
             font-size: 3.5rem; color: white;
             text-shadow: 0 5px 15px rgba(0,0,0,0.5);
@@ -32,33 +30,82 @@
             margin-bottom: 10px;
         }
 
-        /* Ligne 2 : Tunisian Journalist */
         .journalist-line {
-            font-family: 'Georgia', serif; 
-            font-style: italic;
-            font-size: 1.8rem;
-            color: #00d1ff; /* Bleu néon */
-            display: flex; align-items: center; justify-content: center; gap: 15px;
+            font-family: 'Georgia', serif; font-style: italic; font-size: 1.8rem;
+            color: #00d1ff; display: flex; align-items: center; justify-content: center; gap: 15px;
             margin-bottom: 8px;
         }
 
         .mini-flag {
-            width: 35px; height: auto;
-            border-radius: 4px;
-            box-shadow: 0 0 10px rgba(255,255,255,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
+            width: 35px; height: auto; border-radius: 4px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* Ligne 3 : Strategist */
         .strategist-line {
-            font-family: 'Verdana', sans-serif;
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #ffd700; /* Or */
-            letter-spacing: 4px;
-            text-transform: uppercase;
+            font-family: 'Verdana', sans-serif; font-weight: bold; font-size: 1.1rem;
+            color: #ffd700; letter-spacing: 4px; text-transform: uppercase;
         }
 
+        /* --- NAVIGATION --- */
+        nav { 
+            background: #1a1a1a; padding: 20px; text-align: center; 
+            position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; 
+        }
+        nav a { 
+            color: rgba(255, 255, 255, 0.6); text-decoration: none; 
+            margin: 0 15px; font-weight: bold; transition: 0.3s; font-size: 0.85rem;
+        }
+        nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; padding-bottom: 5px; }
+        nav a:hover { color: #00d1ff; }
+
+        /* --- CONTENU BIOGRAPHIE --- */
+        .bio-content { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        
+        section { margin-bottom: 50px; }
+        h2 { 
+            font-size: 1.8rem; color: #003366; text-transform: uppercase; 
+            border-bottom: 2px solid #eee; margin-bottom: 25px; padding-bottom: 5px;
+        }
+
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px; }
+        .job-header h3 { color: #222; font-size: 1.3rem; }
+        .job-date { font-weight: bold; color: #00d1ff; }
+        .location-info { display: block; color: #666; font-style: italic; margin-bottom: 10px; }
+
+        .list-items { margin-left: 20px; margin-bottom: 20px; }
+        .list-items li { margin-bottom: 8px; }
+
+        /* SKILLS */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        .skill-tag { 
+            background: #f0f7ff; color: #003366; padding: 5px 15px; 
+            border-radius: 20px; font-size: 0.9rem; font-weight: bold; border: 1px solid #d0e7ff;
+        }
+
+        .contact-info { 
+            background: #1a1a1a; color: white; padding: 40px; 
+            border-radius: 10px; text-align: center; margin-top: 60px;
+        }
+        .contact-info p { margin-bottom: 10px; }
+
+        @media (max-width: 768px) {
+            .main-name { font-size: 2.2rem; }
+            .job-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grande-photo-banner">
+        <div class="banner-content">
+            <h1 class="main-name">Meher Ferchichi</h1>
+            <div class="journalist-line">
+                <span>TUNISIAN JOURNALIST</span>
+                <img src="https://flagcdn.com/w80/tn.png" alt="Tunisia Flag" class="mini-flag">
+            </div>
+            <div class="strategist-line">DIGITAL CONTENT STRATEGIST</div>
+        </div>
+    </div>
 
     <nav>
         <a href="index.html">HOME</a>
@@ -74,8 +121,8 @@
         
         <section>
             <h2>About Me</h2>
-            <p style="font-size: 1.2rem; text-align: justify;">
-                Digital Content Strategist & Media Governance Expert with 20+ years of comprehensive experience across the media ecosystem. A proven Editorial Leader who has successfully driven Digital Transformation initiatives while ensuring strict Media Regulatory Compliance (Media Law). Proficient in Mobile Journalism (MoJo) and Fact-Checking, seeking to leverage dual expertise in content quality and media innovation within a forward-thinking international organization or a major global media entity.
+            <p style="font-size: 1.1rem; text-align: justify;">
+                Digital Content Strategist & Media Governance Expert with 20+ years of comprehensive experience across the media ecosystem. A proven Editorial Leader who has successfully driven Digital Transformation initiatives while ensuring strict Media Regulatory Compliance.
             </p>
         </section>
 
@@ -88,10 +135,9 @@
             </div>
             <span class="location-info">Radio Tunisienne | Tunis, Tunisia</span>
             <ul class="list-items">
-                <li>Directed the organization's digital transition by designing and implementing a comprehensive, cross-platform Digital Content Strategy.</li>
-                <li>Trained editorial teams on Mobile Journalism (MoJo) techniques and best practices for optimized digital content production.</li>
-                <li>Oversaw the development and optimization of web platforms, successfully expanding the group's digital footprint.</li>
-                <li>Ensured that all digital content maintained strict adherence to media ethics and organizational compliance standards.</li>
+                <li>Directed the organization's digital transition by designing and implementing a comprehensive Digital Content Strategy.</li>
+                <li>Trained editorial teams on Mobile Journalism (MoJo) techniques and best practices.</li>
+                <li>Ensured all digital content maintained strict adherence to media ethics.</li>
             </ul>
 
             <div class="job-header">
@@ -100,80 +146,32 @@
             </div>
             <span class="location-info">Radio Tunisienne | Tunis, Tunisia</span>
             <ul class="list-items">
-                <li>Coordinated the senior editorial team, maintaining editorial control, quality assurance, and ethical standards across broadcasts.</li>
-                <li>Managed strict Media Regulatory Compliance with national bodies (HAICA, ISIE), particularly during critical Electoral Monitoring periods.</li>
-                <li>Authored detailed compliance reports and enforced rigorous standards to ensure fair and balanced media coverage.</li>
-                <li>Orchestrated live coverage for high-profile national and international events, including the 2019 Arab Summit.</li>
-            </ul>
-
-            <div class="job-header">
-                <h3>Journalist, Reporter & News Anchor</h3>
-                <span class="job-date">2006 - 2010</span>
-            </div>
-            <span class="location-info">Radio Tunisienne | Tunis, Tunisia</span>
-            <ul class="list-items">
-                <li>Presented live news broadcasts and flashes (Live Broadcasting), demonstrating exceptional proficiency in real-time information management.</li>
-                <li>Conducted field reporting and in-depth interviews, focusing on political and socio-economic affairs.</li>
-                <li>Developed advanced Scriptwriting and analytical skills essential for accurate and compelling news delivery.</li>
+                <li>Managed strict Media Regulatory Compliance with national bodies (HAICA, ISIE) during Electoral Monitoring.</li>
+                <li>Orchestrated live coverage for high-profile international events, including the 2019 Arab Summit.</li>
             </ul>
         </section>
 
         <section>
             <h2>Skills</h2>
-            <h4>Strategy & Digital</h4>
             <div class="skills-container">
                 <span class="skill-tag">Digital Content Strategy</span>
                 <span class="skill-tag">Mobile Journalism (MoJo)</span>
-                <span class="skill-tag">SEO & Web Development Oversight</span>
-                <span class="skill-tag">Data Journalism & Analysis</span>
-            </div>
-            <br>
-            <h4>Compliance & Governance</h4>
-            <div class="skills-container">
-                <span class="skill-tag">Media Regulatory Compliance</span>
-                <span class="skill-tag">Fact-Checking & Verification</span>
-                <span class="skill-tag">Media Ethics & Governance</span>
+                <span class="skill-tag">Fact-Checking</span>
+                <span class="skill-tag">Media Governance</span>
                 <span class="skill-tag">Electoral Monitoring</span>
-            </div>
-            <br>
-            <h4>Media & Leadership</h4>
-            <div class="skills-container">
-                <span class="skill-tag">Editorial Leadership</span>
                 <span class="skill-tag">Live Broadcasting</span>
-                <span class="skill-tag">Project Management</span>
-                <span class="skill-tag">Training & Development</span>
+                <span class="skill-tag">AI in News Quality</span>
             </div>
         </section>
 
         <section>
             <h2>Education</h2>
             <div class="job-header">
-                <h3>Master's Degree in Journalism and Information Science</h3>
+                <h3>Master's Degree in Journalism</h3>
                 <span class="job-date">2001 - 2005</span>
             </div>
-            <span class="location-info">Institut de Presse et des Sciences de l'Information (IPSI) | Tunis, Tunisia</span>
-            <p><strong>Key Coursework:</strong> Media Law, Investigative Reporting, Media Ethics, Mass Communication.</p>
-        </section>
-
-        <section>
-            <h2>Certifications & Development</h2>
-            <ul class="list-items">
-                <li><strong>Artificial Intelligence in News Quality Service</strong> - ASBU & EBU Academy | Tunis, Tunisia (2023)</li>
-                <li><strong>Verification of Digital News & Fact-Checking</strong> - ASBU & EBU Academy | Tunis, Tunisia (2020)</li>
-                <li><strong>Foundations of Data Journalism</strong> - European Union / Deutsche Welle (DW) | Tunis, Tunisia (2019)</li>
-                <li><strong>Judicial/Legal Information Dissemination</strong> - DCAF (Geneva Centre) | Tunis, Tunisia (2018)</li>
-                <li><strong>Political News Coverage: Debate & Reporting</strong> - RFI & Monte Carlo Doualiya (MCD) | Tunis, Tunisia (2011)</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Volunteer Experience</h2>
-            <div class="job-header">
-                <h3>Summit Assistant (Volunteer)</h3>
-                <span class="job-date">November 2005</span>
-            </div>
-            <span class="location-info">International Telecommunication Union (ITU) - UN Specialized Agency</span>
-            <p style="text-align: justify;">Provided organizational and logistical support during the World Summit on the Information Society (WSIS) in Tunis. Demonstrated professional conduct and adherence to protocol within an International Communication and Global Governance framework.</p>
+            <span class="location-info">IPSI | Tunis, Tunisia</span>
+            <p>Specialization in Media Law and Ethics.</p>
         </section>
 
         <div class="contact-info">
