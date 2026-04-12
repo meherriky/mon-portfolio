@@ -91,7 +91,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none; /* Pour le lien mailto */
+            text-decoration: none;
         }
 
         .btn-send:hover {
@@ -167,15 +167,24 @@
         const messageInput = document.getElementById('message');
         const myEmail = "meher.radio.tun@gmail.com"; [cite: 6]
 
-        // Met à jour le lien mailto en temps réel quand l'utilisateur écrit
         function updateMailto() {
-            const subject = encodeURIComponent(subjectInput.value);
-            const body = encodeURIComponent(messageInput.value);
+            const subject = encodeURIComponent(subjectInput.value || "Professional Inquiry");
+            const body = encodeURIComponent(messageInput.value || "");
             sendLink.href = `mailto:${myEmail}?subject=${subject}&body=${body}`;
         }
 
+        // Initialisation et écoute des changements
+        updateMailto();
         subjectInput.addEventListener('input', updateMailto);
         messageInput.addEventListener('input', updateMailto);
+
+        // Sécurité pour éviter l'envoi à vide
+        sendLink.addEventListener('click', (e) => {
+            if (!subjectInput.value || !messageInput.value) {
+                e.preventDefault();
+                alert("Please fill in both the subject and the message.");
+            }
+        });
     </script>
 
 </body>
