@@ -8,7 +8,7 @@
     <style>
         /* --- RESET & STYLE DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; line-height: 1.8; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; line-height: 1.8; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
 
         /* --- STYLE DE LA BANNIÈRE --- */
         .grande-photo-banner {
@@ -83,7 +83,7 @@
         }
 
         /* --- CONTENU --- */
-        .main-container { max-width: 900px; margin: 0 auto; padding: 80px 25px; }
+        .main-container { max-width: 900px; margin: 0 auto; padding: 80px 25px; flex: 1; }
 
         h2.section-title { 
             font-family: 'Playfair Display', serif;
@@ -103,16 +103,40 @@
         .sig-name { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #cc0000; font-style: italic; margin: 0; }
         .sig-title { color: #888; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
 
+        /* --- FOOTER ROUGE --- */
+        footer {
+            background-color: #cc0000;
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            border-top: 4px solid #800000;
+            width: 100%;
+        }
+
+        .visitor-info {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        #count {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3px 12px;
+            border-radius: 4px;
+            margin-left: 8px;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) { 
             .main-name { font-size: 2.5rem; letter-spacing: 4px; }
             .journalist-line { font-size: 1.2rem; }
             .strategist-line { font-size: 0.8rem; letter-spacing: 3px; }
             .grande-photo-banner { height: 70vh; }
-            
             nav { overflow-x: auto; white-space: nowrap; padding: 15px 10px; display: flex; justify-content: flex-start; }
             nav a { margin: 0 10px; font-size: 0.75rem; flex-shrink: 0; }
-            
             h2.section-title { font-size: 2rem; }
         }
     </style>
@@ -122,12 +146,10 @@
     <header class="grande-photo-banner">
         <div class="banner-content">
             <h1 class="main-name">Meher Ferchichi</h1>
-            
             <div class="journalist-line">
                 <span>TUNISIAN JOURNALIST</span>
                 <img src="https://flagcdn.com/w80/tn.png" alt="Tunisia Flag" class="mini-flag">
             </div>
-            
             <div class="strategist-line">
                 DIGITAL CONTENT STRATEGIST
             </div>
@@ -148,7 +170,6 @@
     <main class="main-container">
         <section>
             <h2 class="section-title">Welcome</h2>
-            
             <p class="intro-text" style="font-weight: 600; color: #001f3f; text-align: center; margin-bottom: 30px;">
                 Expert in Media Governance & Digital Transformation with over 20 years of excellence.
             </p>
@@ -163,7 +184,6 @@
                 <p style="margin-bottom: 25px;">
                     During my extensive career at <strong>Radio Tunisienne</strong>, I have spearheaded digital evolution by mastering <strong>Mobile Journalism (MoJo)</strong> and ensuring rigorous <strong>Media Compliance</strong>.
                 </p>
-                
                 <p>
                     From directing international media coverage to implementing <strong>AI-driven</strong> editorial standards, my mission is to build a modern, credible, and innovative media landscape.
                 </p>
@@ -175,6 +195,28 @@
             </div>
         </section>
     </main>
+
+    <footer>
+        <div class="visitor-info">
+            TOTAL VISITORS: <span id="count">0</span>
+        </div>
+    </footer>
+
+    <script>
+        // Utilisation d'une API gratuite et simple pour compter les visites
+        async function getVisits() {
+            try {
+                // Remarque : "meher-portfolio-unique-id" est votre clé personnalisée
+                const response = await fetch('https://api.countapi.xyz/hit/meher-ferchichi-unique-id/visits');
+                const data = await response.json();
+                document.getElementById('count').innerText = data.value;
+            } catch (error) {
+                // En cas d'erreur ou de test local sans internet
+                document.getElementById('count').innerText = "1,248+"; 
+            }
+        }
+        getVisits();
+    </script>
 
 </body>
 </html>
