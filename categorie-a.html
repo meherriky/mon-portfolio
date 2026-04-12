@@ -8,11 +8,11 @@
     <style>
         /* --- RESET & STYLE DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; line-height: 1.8; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: #333; line-height: 1.8; overflow-x: hidden; }
 
         /* --- BANNIÈRE UNIFIÉE --- */
         .grande-photo-banner {
-            width: 100%; height: 450px;
+            width: 100%; height: 400px;
             background: #001f3f url('image profil.png') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center;
             position: relative; text-align: center;
@@ -21,18 +21,21 @@
             content: ""; position: absolute; top:0; left:0; width:100%; height:100%; 
             background: rgba(0, 31, 63, 0.6); 
         }
-        .banner-content { position: relative; z-index: 2; color: white; }
-        .main-name { font-family: 'Playfair Display', serif; font-size: 3.5rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; }
-        .journalist-line { font-size: 1.4rem; color: #00d1ff; font-weight: 300; letter-spacing: 2px; }
+        .banner-content { position: relative; z-index: 2; color: white; padding: 0 20px; }
+        .main-name { font-family: 'Playfair Display', serif; font-size: 3.2rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; }
+        .journalist-line { font-size: 1.2rem; color: #00d1ff; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
 
         /* --- NAVIGATION --- */
-        nav { background: #1a1a1a; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; }
+        nav { 
+            background: #1a1a1a; padding: 20px; text-align: center; position: sticky; 
+            top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; 
+        }
         nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.85rem; transition: 0.3s; }
         nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; padding-bottom: 5px; }
         nav a:hover { color: #00d1ff; }
 
         /* --- CONTENU BIOGRAPHIE --- */
-        .bio-container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        .bio-container { max-width: 900px; margin: 60px auto; padding: 0 25px; }
 
         .main-title {
             font-family: 'Playfair Display', serif;
@@ -44,17 +47,18 @@
         }
 
         .sub-main-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #c5a059;
             text-align: center;
             font-weight: 700;
             letter-spacing: 3px;
             margin-bottom: 40px;
             display: block;
+            text-transform: uppercase;
         }
 
         .intro-text {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-style: italic;
             color: #555;
             border-left: 5px solid #00d1ff;
@@ -64,7 +68,7 @@
         }
 
         /* --- SECTIONS CHRONOLOGIQUES --- */
-        .bio-section { margin-bottom: 50px; }
+        .bio-section { margin-bottom: 60px; }
 
         .section-header {
             display: flex;
@@ -76,7 +80,7 @@
 
         .section-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #001f3f;
         }
 
@@ -84,22 +88,24 @@
             background: #001f3f;
             color: #fff;
             padding: 5px 15px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-radius: 4px;
             margin-right: 20px;
             font-weight: 600;
+            white-space: nowrap;
         }
 
         h3.focus-title {
             color: #003366;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            line-height: 1.5;
         }
 
         .bio-list { list-style: none; margin-bottom: 30px; }
-        .bio-list li { margin-bottom: 20px; position: relative; padding-left: 30px; }
+        .bio-list li { margin-bottom: 18px; position: relative; padding-left: 30px; font-size: 0.95rem; }
         .bio-list li::before {
             content: "◆";
             position: absolute;
@@ -109,34 +115,44 @@
             top: 2px;
         }
 
-        .list-title { font-weight: 700; color: #333; display: block; }
+        .list-title { font-weight: 700; color: #333; display: block; margin-bottom: 5px; }
 
-        /* --- COMPETENCIES & EDUCATION --- */
+        /* --- SKILLS GRID --- */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 25px;
             background: #f9f9f9;
-            padding: 40px;
-            border-radius: 10px;
+            padding: 35px;
+            border-radius: 12px;
             border: 1px solid #eee;
         }
 
         .skill-item h4 {
             font-family: 'Playfair Display', serif;
             color: #001f3f;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border-bottom: 2px solid #c5a059;
             display: inline-block;
+            font-size: 1.1rem;
         }
 
-        .skill-item p { font-size: 0.9rem; color: #666; }
+        .skill-item p { font-size: 0.9rem; color: #555; line-height: 1.6; }
 
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .main-name { font-size: 2.5rem; }
-            .main-title { font-size: 2rem; }
+            .grande-photo-banner { height: 300px; }
+            .main-name { font-size: 2.2rem; }
+            .main-title { font-size: 1.8rem; }
+            
+            nav { overflow-x: auto; white-space: nowrap; padding: 15px 10px; display: flex; justify-content: flex-start; }
+            nav a { margin: 0 10px; font-size: 0.75rem; flex-shrink: 0; }
+
             .section-header { flex-direction: column; align-items: flex-start; }
             .section-header .years { margin-bottom: 10px; }
+            .section-header h2 { font-size: 1.3rem; }
+            
+            .intro-text { font-size: 1rem; padding-left: 15px; }
         }
     </style>
 </head>
@@ -161,10 +177,10 @@
 
     <div class="bio-container">
         <h1 class="main-title">Professional Biography</h1>
-        <span class="sub-main-title">Digital Content Strategist | Media Governance & Compliance Expert</span>
+        <span class="sub-main-title">Digital Content Strategist | Media Governance Expert</span>
 
         <p class="intro-text">
-            Meher Ferchichi is a seasoned media professional and digital strategist with a career spanning over two decades of excellence in journalism, regulatory oversight, and digital transformation. Throughout his journey from field reporting to executive digital leadership, he has consistently demonstrated a unique ability to bridge the gap between traditional journalistic integrity and modern technological innovation.
+            Meher Ferchichi is a seasoned media professional and digital strategist with a career spanning over two decades. From field reporting to executive digital leadership, he has consistently bridged the gap between traditional journalism and modern technological innovation.
         </p>
 
         <section class="bio-section">
@@ -172,20 +188,20 @@
                 <span class="years">2023 – Present</span>
                 <h2>Executive Leadership & Digital Transformation</h2>
             </div>
-            <h3 class="focus-title">Currently serving as the Digital Content Strategy Manager & Media Trainer for Radio Tunisienne, Meher is the chief architect of the organization’s digital evolution. His leadership focuses on:</h3>
+            <h3 class="focus-title">Digital Content Strategy Manager & Media Trainer for Radio Tunisienne.</h3>
             
             <ul class="bio-list">
                 <li>
                     <span class="list-title">Infrastructure Modernization:</span>
-                    Successfully leading the end-to-end project management, CMS (Content Management System) administration, and execution of Radio Tunisienne’s new suite of digital platforms.
+                    Leading project management and CMS administration for Radio Tunisienne’s new suite of digital platforms.
                 </li>
                 <li>
                     <span class="list-title">Innovation in Production:</span>
-                    Implementing comprehensive training programs in Mobile Journalism (MoJo), empowering editorial teams to produce high-impact, digital-first content.
+                    Implementing Mobile Journalism (MoJo) training to empower editorial teams for digital-first content.
                 </li>
                 <li>
                     <span class="list-title">Emerging Technologies:</span>
-                    Pioneering the integration of Artificial Intelligence (AI) to enhance news quality and digital verification, certified by the ASBU and EBU Academy.
+                    Pioneering AI integration for news verification, certified by ASBU and EBU Academy.
                 </li>
             </ul>
         </section>
@@ -193,22 +209,18 @@
         <section class="bio-section">
             <div class="section-header">
                 <span class="years">2010 – 2023</span>
-                <h2>Regulatory Coordination & Senior Editorial Management</h2>
+                <h2>Regulatory Coordination & Senior Management</h2>
             </div>
-            <h3 class="focus-title">As a Senior News Editor & Media Regulatory Coordinator, Meher spent over a decade ensuring that high-level broadcasts met the most stringent ethical and legal standards.</h3>
+            <h3 class="focus-title">Senior News Editor & Media Regulatory Coordinator.</h3>
 
             <ul class="bio-list">
                 <li>
                     <span class="list-title">Compliance & Governance:</span>
-                    Acting as the primary liaison for national regulatory bodies (HAICA, ISIE), he authored exhaustive compliance reports and enforced rigorous standards during critical periods such as National Elections.
+                    Liaison for national regulatory bodies (HAICA, ISIE), ensuring ethical standards during critical National Elections.
                 </li>
                 <li>
                     <span class="list-title">Global Event Orchestration:</span>
-                    Directed the live coverage and editorial execution for high-profile international events, most notably the 2019 Arab Summit.
-                </li>
-                <li>
-                    <span class="list-title">Strategic Oversight:</span>
-                    Maintained total editorial control and quality assurance across complex broadcasting environments.
+                    Directed live editorial execution for high-profile events, including the 2019 Arab Summit.
                 </li>
             </ul>
         </section>
@@ -216,41 +228,40 @@
         <section class="bio-section">
             <div class="section-header">
                 <span class="years">2006 – 2010</span>
-                <h2>Foundations in Journalism & Field Reporting</h2>
+                <h2>Journalism & Field Reporting</h2>
             </div>
-            <h3 class="focus-title">Meher’s career is rooted in the core disciplines of newsgathering and dissemination. As a Journalist, Reporter & News Anchor, he developed the foundational skills that inform his current strategic roles:</h3>
+            <h3 class="focus-title">Foundations in newsgathering and live broadcasting.</h3>
 
             <ul class="bio-list">
                 <li>
-                    <span class="list-title">Live Broadcasting:</span>
-                    Gained extensive experience as a news anchor, managing real-time information flow during live flashes and broadcasts.
+                    <span class="list-title">News Anchor:</span>
+                    Extensive experience managing real-time information flow during live national broadcasts.
                 </li>
                 <li>
-                    <span class="list-title">In-depth Reporting:</span>
-                    Conducted field investigations and interviews focused on socio-economic and political affairs, refining his scriptwriting and analytical capabilities.
+                    <span class="list-title">In-depth Investigations:</span>
+                    Field reporting on socio-economic affairs, refining analytical and scriptwriting capabilities.
                 </li>
             </ul>
         </section>
 
         <section class="bio-section">
             <div class="section-header">
-                <h2>Education, Certifications & Core Competencies</h2>
+                <h2>Education & Core Competencies</h2>
             </div>
             
             <div class="skills-grid">
                 <div class="skill-item">
-                    <h4>Academic & Global</h4>
-                    <p>Graduate with a Master’s Degree in Journalism and Information Science from IPSI (2005). Served as a Summit Assistant for the ITU during the World Summit on the Information Society (WSIS).</p>
+                    <h4>Academic</h4>
+                    <p>Master’s Degree in Journalism and Information Science from IPSI (2005). Former ITU Assistant for the World Summit on the Information Society (WSIS).</p>
                 </div>
                 <div class="skill-item">
-                    <h4>Specialized Certifications</h4>
-                    <p>Media Law & Governance with DCAF (Geneva). Fact-Checking & Data Journalism from Deutsche Welle (DW) and the EBU Academy.</p>
+                    <h4>Certifications</h4>
+                    <p>Media Law (DCAF Geneva), Fact-Checking & Data Journalism (Deutsche Welle), and AI in Journalism (EBU Academy).</p>
                 </div>
                 <div class="skill-item">
-                    <h4>Core Competencies</h4>
-                    <p><strong>Languages:</strong> Native Arabic, Full Professional French, Advanced Working English.<br>
-                    <strong>Technical:</strong> CMS Administration, SEO, AI-driven news services.<br>
-                    <strong>Admin:</strong> Project Management, Regulatory Reporting.</p>
+                    <h4>Technical Skills</h4>
+                    <p><strong>Languages:</strong> Arabic, French, English.<br>
+                    <strong>Tools:</strong> CMS Administration, SEO, AI Verification, Digital Project Management.</p>
                 </div>
             </div>
         </section>
