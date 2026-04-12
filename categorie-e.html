@@ -4,82 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIDEO PRODUCTION - MEHER FERCHICHI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- RESET & STYLE DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background-color: #f4f7f9; color: #333; line-height: 1.6; overflow-x: hidden; }
 
-        /* --- STYLE DE LA BANNIÈRE (ADAPTATIVE) --- */
+        /* --- STYLE DE LA BANNIÈRE --- */
         .grande-photo-banner {
-            width: 100%; height: 400px;
+            width: 100%; height: 350px;
             background: #001f3f url('image profil.png') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center;
             position: relative; text-align: center;
         }
         .grande-photo-banner::after { 
             content: ""; position: absolute; top:0; left:0; width:100%; height:100%; 
-            background: rgba(0,0,0,0.5); 
+            background: rgba(0, 31, 63, 0.7); 
         }
         .banner-content { position: relative; z-index: 2; color: white; padding: 0 20px; }
-        .main-name { font-size: 3.5rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
-        .journalist-line { font-style: italic; font-size: 1.8rem; color: #00d1ff; margin-bottom: 8px; }
-        .strategist-line { font-weight: bold; font-size: 1.1rem; color: #ffd700; letter-spacing: 4px; text-transform: uppercase; }
+        .main-name { font-size: 3rem; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .journalist-line { font-style: italic; font-size: 1.5rem; color: #00d1ff; margin-bottom: 8px; }
 
-        /* --- NAVIGATION (RESPONSIVE) --- */
-        nav { background: #1a1a1a; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; }
+        /* --- NAVIGATION RESPONSIVE --- */
+        nav { 
+            background: #1a1a1a; padding: 20px; text-align: center; position: sticky; 
+            top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; 
+        }
         nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; font-size: 0.85rem; }
         nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; padding-bottom: 5px; }
+        nav a:hover { color: #00d1ff; }
 
         /* --- CONTENU --- */
-        .main-container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        .theme-section { margin-bottom: 60px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        
+        .theme-section { margin-bottom: 80px; }
         h2.section-title { 
-            font-size: 1.8rem; color: #001f3f; text-transform: uppercase; letter-spacing: 2px; 
-            margin-bottom: 30px; border-left: 5px solid #00d1ff; padding-left: 15px;
-            background: rgba(0, 209, 255, 0.05); padding-top: 10px; padding-bottom: 10px;
+            font-size: 2rem; 
+            color: #001f3f; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 40px; 
+            border-left: 6px solid #00d1ff; 
+            padding: 10px 20px;
+            background: rgba(0, 209, 255, 0.05);
+            font-family: 'Playfair Display', serif;
         }
 
-        /* --- GRILLE VIDÉO (CORRIGÉE POUR MOBILE) --- */
+        /* --- GRILLE VIDÉO RESPONSIVE --- */
         .video-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
             gap: 30px; 
         }
-        .video-card { background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eaeaea; transition: 0.3s; }
-        .video-card:hover { transform: translateY(-5px); border-color: #00d1ff; }
-        .video-wrapper video { width: 100%; display: block; background: #000; height: 250px; object-fit: cover; }
 
-        .video-info { padding: 20px; }
-        .vid-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #001f3f; margin-bottom: 5px; display: block; font-weight: 700; }
-        .vid-date { font-family: monospace; font-size: 0.85rem; color: #00d1ff; font-weight: bold; margin-bottom: 10px; display: block; }
-        .vid-description { font-size: 0.9rem; color: #555; text-align: justify; }
+        .video-card { 
+            background: #ffffff; border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eaeaea; 
+            transition: 0.3s ease; 
+        }
+        .video-card:hover { transform: translateY(-10px); border-color: #00d1ff; box-shadow: 0 15px 40px rgba(0,209,255,0.15); }
+        
+        .video-wrapper video { 
+            width: 100%; aspect-ratio: 16 / 9; display: block; 
+            background: #000; object-fit: cover; 
+        }
 
-        /* --- MOBILE MEDIA QUERIES --- */
+        /* --- INFO VIDÉO --- */
+        .video-info { padding: 25px; }
+        .vid-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #001f3f; margin-bottom: 8px; display: block; font-weight: 700; line-height: 1.2; }
+        .vid-date { font-family: monospace; font-size: 0.85rem; color: #00d1ff; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 12px; }
+        .vid-description { font-size: 0.95rem; color: #555; text-align: justify; line-height: 1.6; }
+
+        /* --- MEDIA QUERIES --- */
         @media (max-width: 768px) {
-            .grande-photo-banner { height: 280px; }
+            .grande-photo-banner { height: 250px; }
             .main-name { font-size: 1.8rem; letter-spacing: 3px; }
-            .journalist-line { font-size: 1.2rem; }
-            .strategist-line { font-size: 0.75rem; letter-spacing: 2px; }
-            
-            nav { overflow-x: auto; white-space: nowrap; padding: 15px 10px; display: flex; justify-content: flex-start; }
-            nav a { margin: 0 10px; font-size: 0.75rem; flex-shrink: 0; }
-            
-            .main-container { padding: 30px 15px; }
-            h2.section-title { font-size: 1.3rem; }
-            .video-grid { grid-template-columns: 1fr; } /* Une seule colonne sur petit écran */
+            .journalist-line { font-size: 1.1rem; }
+            nav { overflow-x: auto; white-space: nowrap; display: flex; justify-content: flex-start; }
+            nav a { flex-shrink: 0; font-size: 0.75rem; margin: 0 10px; }
+            .video-grid { grid-template-columns: 1fr; }
+            h2.section-title { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="grande-photo-banner">
+    <header class="grande-photo-banner">
         <div class="banner-content">
             <h1 class="main-name">Meher Ferchichi</h1>
-            <div class="journalist-line">TUNISIAN JOURNALIST</div>
-            <div class="strategist-line">DIGITAL CONTENT STRATEGIST</div>
+            <div class="journalist-line">VIDEO PRODUCTION PORTFOLIO</div>
         </div>
-    </div>
+    </header>
 
     <nav>
         <a href="index.html">HOME</a>
@@ -96,58 +111,168 @@
         <section class="theme-section">
             <h2 class="section-title">Studio Live News Broadcasting</h2>
             <div class="video-grid">
+                
                 <div class="video-card">
                     <div class="video-wrapper">
                         <video controls preload="metadata" playsinline>
-                            <source src="https://res.cloudinary.com/dhicihczs/video/upload/f_auto,q_auto/v1775903491/30-04-2020_orkmro.mp4" type="video/mp4">
+                            <source src="https://res.cloudinary.com/dhicihczs/video/upload/v1775903491/30-04-2020_orkmro.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="video-info">
                         <span class="vid-title">Live Radio News Broadcast</span>
                         <span class="vid-date">April 30, 2020</span>
-                        <p class="vid-description">Live presentation of radio news bulletins on Radio Tunisienne.</p>
+                        <p class="vid-description">Live presentation of radio news bulletins on Radio Tunisienne, covering political and economic news updates.</p>
                     </div>
                 </div>
-                
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls preload="metadata" playsinline>
+                            <source src="https://res.cloudinary.com/dhicihczs/video/upload/v1775903541/28_2020_rtlpp7.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <span class="vid-title">Main News Bulletin Presentation</span>
+                        <span class="vid-date">April 28, 2020</span>
+                        <p class="vid-description">Direct on-air news anchoring for the Tunisian National Radio, featuring comprehensive national coverage.</p>
+                    </div>
                 </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls preload="metadata" playsinline>
+                            <source src="https://res.cloudinary.com/dhicihczs/video/upload/v1775903510/12042020_mik2mj.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <span class="vid-title">Daily News Review</span>
+                        <span class="vid-date">April 12, 2020</span>
+                        <p class="vid-description">Presentation of diverse news segments including politics and economy broadcast live.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls preload="metadata" playsinline>
+                            <source src="https://res.cloudinary.com/dhicihczs/video/upload/v1775903515/11042020_rwuaxn.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <span class="vid-title">Integrated News Programming</span>
+                        <span class="vid-date">April 11, 2020</span>
+                        <p class="vid-description">Live anchoring of news bulletins covering social developments and sports updates.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls preload="metadata" playsinline>
+                            <source src="https://res.cloudinary.com/dhicihczs/video/upload/v1775988711/45273400_747238772293425_7647239259652358144_n_291956531655075_ja5l8r.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <span class="vid-title">Radio News Live Broadcasting</span>
+                        <span class="vid-date">October 11, 2018</span>
+                        <p class="vid-description">Professional news anchoring ensuring rapid and accurate information delivery from the studio.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls preload="metadata" playsinline>
+                            <source src="https://res.cloudinary.com/dhicihczs/video/upload/v1775988987/09AjujU0lr2wMH6s_okh8z8.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <span class="vid-title">On-Air Studio Session</span>
+                        <span class="vid-date">May 05, 2017</span>
+                        <p class="vid-description">Live news presentation highlighting social developments and national headlines.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls preload="metadata" playsinline>
+                            <source src="https://res.cloudinary.com/dzagifkad/video/upload/v1775991750/46812153_1116121345219277_5798779111769899008_n_304021660448562_hveqtf.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <span class="vid-title">Radio Panorama Live</span>
+                        <span class="vid-date">May 05, 2017</span>
+                        <p class="vid-description">Live anchoring of regional news bulletins covering social developments and regional updates.</p>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <section class="theme-section">
             <h2 class="section-title">Radio News Report</h2>
             <div class="video-grid">
+                
                 <div class="video-card">
                     <div class="video-wrapper">
                         <video controls preload="metadata" playsinline>
-                            <source src="https://res.cloudinary.com/dzagifkad/video/upload/f_auto,q_auto/v1775991745/train_zc63il.mp4" type="video/mp4">
+                            <source src="https://res.cloudinary.com/dzagifkad/video/upload/v1775991745/train_zc63il.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="video-info">
-                        <span class="vid-title">News Report: Line D</span>
+                        <span class="vid-title">Transport Infrastructure Report</span>
                         <span class="vid-date">May 05, 2017</span>
-                        <p class="vid-description">Launch of the First Rail Trips to Tunis Western Suburbs.</p>
+                        <p class="vid-description">Field report: Launch of the first rail trips to Tunis Western Suburbs (Line D).</p>
                     </div>
                 </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls preload="metadata" playsinline>
+                            <source src="https://res.cloudinary.com/dzagifkad/video/upload/v1775991767/benguerden_jol31x.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <span class="vid-title">National Commemoration Report</span>
+                        <span class="vid-date">May 05, 2017</span>
+                        <p class="vid-description">Field report: Tunisia commemorates the anniversary of the heroic Ben Guerdane battle.</p>
+                    </div>
                 </div>
+
+            </div>
         </section>
 
         <section class="theme-section">
             <h2 class="section-title">Radio Documentary</h2>
             <div class="video-grid">
+                
                 <div class="video-card">
                     <div class="video-wrapper">
                         <video controls preload="metadata" playsinline>
-                            <source src="https://res.cloudinary.com/dzagifkad/video/upload/f_auto,q_auto/v1775991746/moufawadhat_pg497n.mp4" type="video/mp4">
+                            <source src="https://res.cloudinary.com/dzagifkad/video/upload/v1775991746/moufawadhat_pg497n.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="video-info">
                         <span class="vid-title">The Path to Sovereignty</span>
                         <span class="vid-date">March 20, 2016</span>
-                        <p class="vid-description">Documentary on Tunisian Negotiations for Independence.</p>
+                        <p class="vid-description">Documentary exploring the journey of Tunisian negotiations for National Independence.</p>
                     </div>
                 </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls preload="metadata" playsinline>
+                            <source src="https://res.cloudinary.com/dzagifkad/video/upload/v1775991764/joumhouriya_ftxing.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <span class="vid-title">The Path to the Republic</span>
+                        <span class="vid-date">March 20, 2016</span>
+                        <p class="vid-description">Historical documentary detailing the transition and foundations of the Tunisian Republic.</p>
+                    </div>
                 </div>
+
+            </div>
         </section>
 
     </main>
+
 </body>
 </html>
