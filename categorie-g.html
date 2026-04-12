@@ -1,76 +1,44 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONTACT - MEHER FERCHICHI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: #f4f7f9; color: #333; line-height: 1.6; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #000b18; color: #fff; }
 
-        /* BANNIÈRE */
         .grande-photo-banner {
-            width: 100%; height: 300px;
+            width: 100%; height: 350px;
             background: #001f3f url('image profil.png') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center;
-            position: relative; text-align: center;
+            position: relative;
         }
-        .grande-photo-banner::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0, 31, 63, 0.7); }
-        .banner-content { position: relative; z-index: 2; color: white; }
-        .main-name { font-family: 'Playfair Display', serif; font-size: 2.5rem; letter-spacing: 5px; text-transform: uppercase; }
+        .grande-photo-banner::after { content: ""; position: absolute; inset: 0; background: rgba(0, 31, 63, 0.75); }
+        .banner-content { position: relative; z-index: 2; text-align: center; }
+        .main-name { font-family: 'Playfair Display', serif; font-size: 3rem; text-transform: uppercase; letter-spacing: 5px; }
 
-        /* NAVIGATION */
         nav { background: #1a1a1a; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; }
         nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.85rem; }
         nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; padding-bottom: 5px; }
 
-        /* FORMULAIRE CORPS */
-        .contact-container { max-width: 700px; margin: 50px auto; padding: 0 20px; }
-        .contact-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: 700; color: #001f3f; margin-bottom: 8px; text-transform: uppercase; font-size: 0.8rem; }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #eee;
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-        }
+        .contact-wrapper { max-width: 800px; margin: 60px auto; padding: 0 20px; }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 25px; padding: 50px; box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
 
-        textarea.form-control { min-height: 150px; resize: vertical; }
-
-        /* BOUTON ENVOYER */
-        .btn-send {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: #001f3f;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-send:hover { background: #00d1ff; transform: translateY(-2px); }
+        .input-group { position: relative; margin-bottom: 35px; border-bottom: 2px solid rgba(255,255,255,0.1); }
+        .input-group label { display: block; color: #00d1ff; text-transform: uppercase; font-size: 0.7rem; font-weight: 700; margin-bottom: 5px; }
+        .input-group input, .input-group textarea { width: 100%; background: transparent; border: none; padding: 10px 0; color: #fff; font-size: 1.1rem; outline: none; font-family: 'Montserrat', sans-serif; }
+        
+        .futuristic-btn { background: transparent; color: #fff; border: 1px solid #00d1ff; padding: 18px 50px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; border-radius: 50px; transition: 0.4s; display: inline-block; text-decoration: none; }
+        .futuristic-btn:hover { background: #00d1ff; color: #000; box-shadow: 0 0 30px rgba(0, 209, 255, 0.5); }
+        
+        @media (max-width: 768px) { nav { display: flex; overflow-x: auto; } .main-name { font-size: 2rem; } }
     </style>
 </head>
 <body>
-
-    <div class="grande-photo-banner">
-        <div class="banner-content">
-            <h1 class="main-name">Contact Me</h1>
-        </div>
-    </div>
-
+    <header class="grande-photo-banner">
+        <div class="banner-content"><h1 class="main-name">Meher Ferchichi</h1></div>
+    </header>
     <nav>
         <a href="index.html">HOME</a>
         <a href="categorie-a.html">BIOGRAPHY</a>
@@ -81,25 +49,22 @@
         <a href="categorie-f.html">AI VIDEO PRODUCTION</a>
         <a href="categorie-g.html" class="active">CONTACT</a>
     </nav>
-
-    <div class="contact-container">
-        <div class="contact-card">
+    <main class="contact-wrapper">
+        <div class="glass-card">
             <form action="mailto:meher.radio.tun@gmail.com" method="post" enctype="text/plain">
-                
-                <div class="form-group">
-                    <label>Sujet de votre demande (Objet)</label>
-                    <input type="text" name="subject" class="form-control" placeholder="Ex: Proposition de collaboration" required>
+                <div class="input-group">
+                    <label>Objet / Subject</label>
+                    <input type="text" name="subject" required>
                 </div>
-
-                <div class="form-group">
-                    <label>Votre Message (Corps de l'e-mail)</label>
-                    <textarea name="body" class="form-control" placeholder="Écrivez votre message ici..." required></textarea>
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea name="body" rows="5" required></textarea>
                 </div>
-
-                <button type="submit" class="btn-send">Envoyer le message</button>
+                <div style="text-align: center;">
+                    <button type="submit" class="futuristic-btn">Initialize Transfer</button>
+                </div>
             </form>
         </div>
-    </div>
-
+    </main>
 </body>
 </html>
