@@ -4,127 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI VIDEO PRODUCTION - MEHER FERCHICHI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- RESET & STYLE DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: #f4f7f9; color: #333; line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #f8fafc; color: #333; line-height: 1.6; }
 
-        /* --- STYLE DE LA BANNIÈRE (RESPONSIVE) --- */
+        /* --- BANNIÈRE UNIFIÉE --- */
         .grande-photo-banner {
-            width: 100%; height: 400px;
+            width: 100%; height: 350px;
             background: #001f3f url('image profil.png') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center;
             position: relative; text-align: center;
         }
         .grande-photo-banner::after { 
             content: ""; position: absolute; top:0; left:0; width:100%; height:100%; 
-            background: rgba(0,0,0,0.5); 
+            background: rgba(0, 31, 63, 0.7); 
         }
         .banner-content { position: relative; z-index: 2; color: white; padding: 0 20px; }
-        .main-name { font-size: 3.5rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
-        .journalist-line { font-style: italic; font-size: 1.8rem; color: #00d1ff; margin-bottom: 8px; }
-        .strategist-line { font-weight: bold; font-size: 1.1rem; color: #ffd700; letter-spacing: 4px; text-transform: uppercase; }
+        .main-name { font-family: 'Playfair Display', serif; font-size: 3rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; }
+        .journalist-line { font-size: 1.2rem; color: #00d1ff; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* --- NAVIGATION (SCROLLABLE SUR MOBILE) --- */
+        /* --- NAVIGATION --- */
         nav { 
-            background: #1a1a1a; 
-            padding: 20px; 
-            text-align: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            border-bottom: 2px solid #00d1ff; 
+            background: #1a1a1a; padding: 20px; text-align: center; position: sticky; 
+            top: 0; z-index: 1000; border-bottom: 2px solid #00d1ff; 
         }
-        nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; transition: 0.3s; font-size: 0.85rem; }
+        nav a { color: rgba(255, 255, 255, 0.6); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.85rem; transition: 0.3s; }
         nav a.active { color: #00d1ff; border-bottom: 2px solid #00d1ff; padding-bottom: 5px; }
+        nav a:hover { color: #00d1ff; }
 
-        /* --- PHRASE CLIGNOTANTE --- */
+        /* --- ALERTE AI (CLIGNOTANTE) --- */
         .ai-disclaimer {
-            background: #fff4f4;
-            color: #d11a2a; 
+            background: #fff1f2;
+            color: #e11d48; 
             text-align: center;
             padding: 15px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            font-weight: 700;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 1px solid #ffdcdc;
+            border-bottom: 1px solid #fecdd3;
             animation: blink 2.5s infinite;
         }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+        /* --- CONTENU --- */
+        .main-container { max-width: 1200px; margin: 60px auto; padding: 0 25px; }
+        
+        .section-title { 
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem; color: #001f3f; text-align: center; margin-bottom: 50px; 
+            text-transform: uppercase;
         }
 
-        /* --- CONTENU PRINCIPAL --- */
-        .main-container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
-        h2.section-title { 
-            font-size: 2rem; 
-            color: #001f3f; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin-bottom: 40px; 
-            border-left: 5px solid #00d1ff; 
-            padding-left: 15px;
-        }
-
-        /* --- GRILLE AI (FLEXIBLE) --- */
+        /* --- GRILLE VIDÉO --- */
         .ai-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
             gap: 40px; 
         }
-        .ai-card { background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eaeaea; transition: 0.3s ease; }
-        .ai-card:hover { transform: translateY(-10px); border-color: #00d1ff; box-shadow: 0 15px 40px rgba(0, 209, 255, 0.15); }
-        .video-wrapper video { width: 100%; display: block; background: #000; height: 300px; object-fit: cover; }
 
-        /* --- INFO AI --- */
-        .ai-info { padding: 30px; }
-        .ai-tag { 
-            display: inline-block; 
-            background: #001f3f; 
-            color: #00d1ff; 
-            font-size: 0.7rem; 
-            padding: 5px 12px; 
-            border: 1px solid #00d1ff;
-            border-radius: 4px; 
-            font-weight: bold; 
-            margin-bottom: 15px; 
-            text-transform: uppercase; 
+        .ai-card { 
+            background: #ffffff; border-radius: 16px; overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; 
+            transition: transform 0.3s ease, border-color 0.3s ease; 
         }
-        .vid-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #001f3f; margin-bottom: 12px; display: block; font-weight: 700; line-height: 1.2; }
-        .vid-description { font-size: 0.95rem; color: #555; text-align: justify; line-height: 1.7; }
+        .ai-card:hover { transform: translateY(-10px); border-color: #00d1ff; }
 
-        /* --- ADAPTATION MOBILE (MEDIA QUERIES) --- */
+        .video-wrapper video { 
+            width: 100%; aspect-ratio: 16 / 9; display: block; 
+            background: #000; object-fit: cover; 
+        }
+
+        /* --- INFO TEXTE --- */
+        .ai-info { padding: 30px; }
+        
+        .ai-tag { 
+            display: inline-block; background: #f0f9ff; color: #0369a1; 
+            font-size: 0.7rem; padding: 4px 12px; border-radius: 20px; 
+            font-weight: 700; margin-bottom: 15px; text-transform: uppercase;
+            border: 1px solid #bae6fd;
+        }
+
+        .vid-title { 
+            font-family: 'Playfair Display', serif; font-size: 1.5rem; 
+            color: #001f3f; margin-bottom: 12px; display: block; font-weight: 800; 
+        }
+
+        .vid-description { 
+            font-size: 0.95rem; color: #64748b; text-align: justify; line-height: 1.7; 
+        }
+
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .grande-photo-banner { height: 280px; }
-            .main-name { font-size: 1.8rem; letter-spacing: 3px; }
-            .journalist-line { font-size: 1.2rem; }
-            .strategist-line { font-size: 0.75rem; letter-spacing: 2px; }
+            .grande-photo-banner { height: 250px; }
+            .main-name { font-size: 2rem; }
+            .ai-grid { grid-template-columns: 1fr; } /* Une seule colonne sur mobile */
             
-            nav { overflow-x: auto; white-space: nowrap; padding: 15px 10px; display: flex; justify-content: flex-start; }
-            nav a { margin: 0 10px; font-size: 0.75rem; flex-shrink: 0; }
-            
-            .main-container { padding: 30px 15px; }
-            h2.section-title { font-size: 1.4rem; }
-            .video-wrapper video { height: 220px; }
-            .ai-grid { grid-template-columns: 1fr; gap: 25px; }
-            .ai-info { padding: 20px; }
-            .vid-title { font-size: 1.3rem; }
+            nav { overflow-x: auto; white-space: nowrap; display: flex; justify-content: flex-start; padding: 15px 10px; }
+            nav a { font-size: 0.75rem; margin: 0 10px; flex-shrink: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="grande-photo-banner">
+    <header class="grande-photo-banner">
         <div class="banner-content">
             <h1 class="main-name">Meher Ferchichi</h1>
-            <div class="journalist-line">TUNISIAN JOURNALIST</div>
-            <div class="strategist-line">DIGITAL CONTENT STRATEGIST</div>
+            <p class="journalist-line">AI Innovation Portfolio</p>
         </div>
-    </div>
+    </header>
 
     <nav>
         <a href="index.html">HOME</a>
@@ -137,11 +127,11 @@
     </nav>
 
     <div class="ai-disclaimer">
-        Disclaimer: All videos in this section are conceptualized and executed by Meher Ferchichi using Artificial Intelligence.
+        Disclaimer: Conceptualized and executed by Meher Ferchichi using Generative Artificial Intelligence.
     </div>
 
     <main class="main-container">
-        <h2 class="section-title">Generative AI Video Portfolio</h2>
+        <h2 class="section-title">Generative AI Video Projects</h2>
         
         <div class="ai-grid">
             
@@ -149,11 +139,12 @@
                 <div class="video-wrapper">
                     <video controls preload="metadata" playsinline>
                         <source src="https://res.cloudinary.com/dhicihczs/video/upload/f_auto,q_auto/v1775905628/%D9%85%D8%BA%D8%A7%D8%B1%D8%A9_%D8%B9%D9%8A%D9%86_%D8%A7%D9%84%D8%B0%D9%87%D8%A8_eloiho.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="ai-info">
                     <span class="ai-tag">Generative Documentary</span>
-                    <span class="vid-title">Ain D'hab Cave: Nature's Golden Masterpiece</span>
+                    <strong class="vid-title">Ain D'hab Cave: Nature's Golden Masterpiece</strong>
                     <p class="vid-description">
                         A historical cave carved by nature over millions of years deep within the mountains. Today, it stands as one of Tunisia's most breathtaking natural landmarks.
                     </p>
@@ -168,7 +159,7 @@
                 </div>
                 <div class="ai-info">
                     <span class="ai-tag">AI Visual Warning</span>
-                    <span class="vid-title">Planet Earth – An AI Warning on Climate</span>
+                    <strong class="vid-title">Planet Earth – An AI Warning on Climate</strong>
                     <p class="vid-description">
                         In this documentary, scripted and analyzed by Artificial Intelligence, a shocking image of Planet Earth emerges. Data has become a digital cry for help.
                     </p>
@@ -183,7 +174,7 @@
                 </div>
                 <div class="ai-info">
                     <span class="ai-tag">Geopolitical Analysis</span>
-                    <span class="vid-title">Lifelines – Global Straits & International Trade</span>
+                    <strong class="vid-title">Lifelines – Global Straits & Trade</strong>
                     <p class="vid-description">
                         Maritime straits are geopolitical "chokepoints"—narrow passages connecting the world's oceans. These waterways represent the backbone of the global economy.
                     </p>
